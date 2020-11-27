@@ -42,28 +42,28 @@ const Login = props => {
           <Title style={styles.textTitle}>AgriQultura</Title>
         </View>
         <TextInput
-          style={styles.textInput}
           label="Username"
-          value={username}
-          error={userError}
-          selectionColor="#6200EE"
           mode="outlined"
+          value={username}
+          style={styles.textInput}
+          theme={{ colors: { placeholder: '#6200ee'}}}
+          error={userError}
           onChangeText={text => handleUsername(text)}
         />
         <TextInput
-          style={styles.textInput}
           label="Password"
-          value={passwod}
-          error={passError}
-          selectionColor="#6200EE"
           mode="outlined"
+          value={passwod}
+          style={styles.textInput}
+          theme={{ colors: { placeholder: '#6200ee'}}}
+          error={passError}
           onChangeText={text => handlePassword(text)}
         />
         <Button 
-          style={styles.btn}
-          mode="contained" 
-          onPress={loginHandler}
           children="Login"
+          mode="contained" 
+          style={styles.btn}
+          onPress={loginHandler}
         />
       </Surface>
       </ImageBackground>
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     padding: 30,
     marginLeft: 10,
     marginRight: 10,
-    elevation: 40,
+    elevation: 30,
     backgroundColor: '#FFF'
   },
   header:{
