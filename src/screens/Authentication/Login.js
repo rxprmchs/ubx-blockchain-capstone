@@ -1,10 +1,12 @@
 import React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 
-const Home = () => {
+const Login = props => {
   return(
     <View style={styles.container}>
-      <Text>I'm still alive..</Text>
+      <TouchableOpacity onPress={()=> props.navigation.navigate('Main Menu')}>
+        <Text>Login</Text>
+      </TouchableOpacity>
     </View>
   )
 }
@@ -19,4 +21,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home
+
+export default Login
