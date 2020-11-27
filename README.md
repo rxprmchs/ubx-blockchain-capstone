@@ -46,7 +46,7 @@ yarn
 ### Usage
 
 #### Run the app
-
+```
 npm install
 ```
 then
@@ -60,8 +60,6 @@ yarn start
 or
 ```
 expo start
-```
-
 ```
 #### Develop the app for iOS
 
