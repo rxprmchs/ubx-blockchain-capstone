@@ -62,7 +62,8 @@ or
 expo start
 ```
 
-Develop the app for iOS
+```
+#### Develop the app for iOS
 
 ```
 npm run ios
@@ -72,7 +73,7 @@ or
 yarn run ios
 ```
 
-Develop the app for Android
+#### Develop the app for Android
 
 ```
 npm run android
