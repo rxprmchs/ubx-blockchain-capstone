@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { Provider as PaperProvider } from 'react-native-paper';
 
 import Login from './src/screens/Authentication/Login'
 import MainMenu from './src/shared/components/MainMenu/MainMenu'
@@ -18,11 +19,13 @@ export default function(){
   }
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home" headerMode="none">
-        <Stack.Screen name="Authentication" component={AuthCompents} />
-        <Stack.Screen name="Main Menu" component={MainMenu} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <PaperProvider>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home" headerMode="none">
+          <Stack.Screen name="Authentication" component={AuthCompents} />
+          <Stack.Screen name="Main Menu" component={MainMenu} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </PaperProvider>
   );
 }
