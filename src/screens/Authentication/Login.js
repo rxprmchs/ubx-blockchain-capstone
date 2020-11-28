@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { ImageBackground, StyleSheet, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { TextInput, Button, Avatar, Title, Surface, Text  } from 'react-native-paper'
 
-import BGPattern2 from '../../../assets/images/leaf2.png'
+import BgLeaf from '../../shared/components/Container/BgLeaf/BgLeaf'
 
 const Login = props => {
   const [username, setUsername] = useState('')
@@ -34,8 +34,7 @@ const Login = props => {
   }
   
   return(
-    <View style={styles.mainContainer}>
-       <ImageBackground source={BGPattern2} style={styles.mainContainer} imageStyle={{resizeMode: 'repeat'}}>
+    <BgLeaf>
       <Surface style={styles.loginContainer}>
         <View style={styles.header}>
           <Avatar.Icon size={40} icon="flower" />
@@ -65,9 +64,9 @@ const Login = props => {
           style={styles.btn}
           onPress={loginHandler}
         />
+        <Text style={styles.textNoAccount}>Don't have an account?</Text>
       </Surface>
-      </ImageBackground>
-    </View>
+    </BgLeaf>
   )
 }
 
@@ -95,6 +94,12 @@ const styles = StyleSheet.create({
     fontSize: 24,
     paddingLeft: 10,
   },
+  textNoAccount:{
+    textAlign: 'center',
+    fontWeight: 'bold',
+    textDecorationColor: '#6200ee',
+    
+  },
   textInput: {
     marginTop: 10,
     marginBottom: 10,
@@ -102,6 +107,7 @@ const styles = StyleSheet.create({
   },
   btn: {
     marginTop: 20,
+    marginBottom: 20,
     height: 50,
     justifyContent: 'center'
   }
