@@ -59,45 +59,44 @@ const MainMenu = props => {
 
 return (
   <Tab.Navigator 
-  initialRouteName="Home" 
-  backBehavior="none"
-  inactiveColor="#7D80DA"
-  activeColor="#fff"
-  shifting
-  barStyle={{backgroundColor: '#6200ee'}}
+    initialRouteName="Home" 
+    backBehavior="none"
+    inactiveColor="#7D80DA"
+    activeColor="#fff"
+    shifting
+    barStyle={{backgroundColor: '#6200ee'}}
   >
-      <Tab.Screen 
-        name="Home" 
-        children={HomeComponents} 
-        options={{
-          tabBarLabel: 'Home',
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="apps" color={color} size={26} />
-          ),
-        }}
-      />
-      <Tab.Screen 
-        name="Settings" 
-        children={SettingsComponents} 
-        options={{
-          tabBarLabel: 'Settings',
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="buffer" color={color} size={26} />
-          ),
-        }}
-      />
-      <Tab.Screen 
-        name="Logout" 
-        children={Logout} 
-        options={{
-          tabBarLabel: 'Logout',
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="logout" color={color} size={26} />
-          ),
-        }}
-      />
-    </Tab.Navigator>
-  );
-}
+    <Tab.Screen 
+      name="Home" 
+      children={HomeComponents} 
+      options={{
+        tabBarLabel: 'Home',
+        tabBarIcon: ({ color }) => (
+          <MaterialCommunityIcons name="apps" color={color} size={26} />
+        ),
+      }}
+    />
+    <Tab.Screen 
+      name="Settings" 
+      children={SettingsComponents} 
+      options={{
+        tabBarLabel: 'Settings',
+        tabBarIcon: ({ color }) => (
+          <MaterialCommunityIcons name="buffer" color={color} size={26} />
+        ),
+      }}
+    />
+    <Tab.Screen 
+      name="Logout" 
+      children={Logout} 
+      options={{
+        tabBarLabel: 'Logout',
+        tabBarIcon: ({ color }) => (
+          <MaterialCommunityIcons name="logout" color={color} size={26} />
+        ),
+      }}
+    />
+  </Tab.Navigator>
+)}
 
 export default MainMenu
