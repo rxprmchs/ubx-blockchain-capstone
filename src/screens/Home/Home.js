@@ -1,11 +1,15 @@
 import React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View, Text, ScrollView} from 'react-native'
+
+import Header from './components/Header/Header'
+import TransactionHistory from './components/TransactionHistory/TransactionHistory'
 
 const Home = () => {
   return(
-    <View style={styles.container}>
-      <Text>I'm still alive..</Text>
-    </View>
+    <ScrollView>
+      <Header/>
+      <TransactionHistory/>
+    </ScrollView>
   )
 }
 

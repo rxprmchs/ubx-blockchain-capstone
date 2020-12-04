@@ -45,7 +45,7 @@ const Login = props => {
           mode="outlined"
           value={username}
           style={styles.textInput}
-          theme={{ colors: { placeholder: '#6200ee'}}}
+          theme={{ colors: { placeholder: '#6200ee'}, fonts: {fontFamily: 'Lato-Regular'}}}
           error={userError}
           onChangeText={text => handleUsername(text)}
         />
@@ -54,16 +54,18 @@ const Login = props => {
           mode="outlined"
           value={passwod}
           style={styles.textInput}
-          theme={{ colors: { placeholder: '#6200ee'}}}
+          theme={{ colors: { placeholder: '#6200ee'}, fonts: {fontFamily: 'Lato-Regular'}}}
           error={passError}
           onChangeText={text => handlePassword(text)}
         />
         <Button 
-          children="Login"
           mode="contained" 
           style={styles.btn}
           onPress={loginHandler}
-        />
+          uppercase
+        >
+          <Text style={styles.btnText}>Login</Text>
+        </Button>
         <Text style={styles.textNoAccount}>Don't have an account?</Text>
       </Surface>
     </BgLeaf>
@@ -79,7 +81,10 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   loginContainer: {
-    padding: 30,
+    paddingTop: 50,
+    paddingBottom: 50,
+    paddingLeft: 30,
+    paddingRight: 30,
     marginLeft: 10,
     marginRight: 10,
     elevation: 30,
@@ -92,24 +97,32 @@ const styles = StyleSheet.create({
   },
   textTitle: {
     fontSize: 24,
+    fontFamily: 'Lato-Bold',
     paddingLeft: 10,
   },
   textNoAccount:{
     textAlign: 'center',
-    fontWeight: 'bold',
     textDecorationColor: '#6200ee',
-    
+    fontFamily: 'Lato-Bold',
   },
   textInput: {
     marginTop: 10,
     marginBottom: 10,
-    height: 50
+    height: 50,
+    fontSize: 15, 
+    fontFamily: 'Lato-Regular'
   },
   btn: {
     marginTop: 20,
     marginBottom: 20,
     height: 50,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    fontSize: 50, 
+  },
+  btnText: {
+    fontFamily: 'Lato-Bold', 
+    fontSize: 18, 
+    color: '#FFF'
   }
 });
 
