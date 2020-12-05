@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View  } from 'react-native'
 import {  
   Card, 
@@ -6,7 +6,9 @@ import {
   Paragraph, 
   Text, 
   Avatar, 
-  Caption  
+  Caption, 
+  Dialog, 
+  Portal 
   } from 'react-native-paper';
 import { StyleSheet } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -15,6 +17,11 @@ import Profile from '../../../../../assets/images/sampleProfile.jpg'
 import HeaderContainer from '../../../../shared/components/Container/HeaderContainer/HeaderContainer'
 
 const Header = () => {
+  const [visible, setVisible] = useState(false)
+
+  const openRatingHandler = () => setVisible(true)
+  const closeRatingHandler = () => setVisible(false)
+
   return(
     <View>
       <HeaderContainer>
@@ -52,7 +59,7 @@ const Header = () => {
             <MaterialCommunityIcons name="corn" color="#6200EE" size={30} />
           </Card.Content>
         </Card>
-        <Card style={styles.ratingCardContainer}>
+        <Card style={styles.ratingCardContainer} onPress={openRatingHandler}>
           <Card.Content style={styles.ratingCardContent}>
             <View>
               <Title style={styles.ratingTitle}>Feedback</Title>
@@ -62,6 +69,14 @@ const Header = () => {
           </Card.Content>
         </Card>
       </View>
+      <Portal>
+      <Dialog visible={visible} onDismiss={closeRatingHandler}>
+        <Dialog.Title>Give Rating</Dialog.Title>
+        <Dialog.Content>
+          <Paragraph>Rate the merchant</Paragraph>
+        </Dialog.Content>
+      </Dialog>
+    </Portal>
     </View>
 )}
 

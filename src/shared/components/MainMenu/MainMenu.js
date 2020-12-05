@@ -7,6 +7,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import Home from '../../../screens/Home/Home'
 import Settings from '../../../screens/Settings/Settings'
+import ChangePassword from '../../../screens/Settings/pages/ChangePassword/ChangePassword'
 
 const Stack = createStackNavigator()
 const Tab = createMaterialBottomTabNavigator();
@@ -29,6 +30,7 @@ const MainMenu = props => {
       <>
       <Stack.Navigator initialRouteName="Settings" headerMode="none">
         <Stack.Screen name="Settings" component={Settings} options={{ title: "Settings" }}/>
+        <Stack.Screen name="Change Password" component={ChangePassword} options={{ title: "Change Password" }}/>
       </Stack.Navigator>
     </>
     )
