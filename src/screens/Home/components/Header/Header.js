@@ -65,7 +65,7 @@ const Header = () => {
               <Title style={styles.ratingTitle}>Feedback</Title>
               <Caption style={styles.ratingCaption}>Give Rating</Caption>
             </View>
-            <MaterialCommunityIcons name="chevron-right" color="#6200EE" size={30} />
+            <MaterialCommunityIcons name="star-circle" color="#6200EE" size={30} />
           </Card.Content>
         </Card>
       </View>

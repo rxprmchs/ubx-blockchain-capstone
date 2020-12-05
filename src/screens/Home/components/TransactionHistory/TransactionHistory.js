@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { ScrollView } from 'react-native';
-import { DataTable, Card } from 'react-native-paper';
+import { DataTable, Card, Title, Searchbar } from 'react-native-paper';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const TransactionHistory = () => {
   return(
@@ -8,56 +9,76 @@ const TransactionHistory = () => {
       <Card.Content>
         <DataTable>
           <DataTable.Header>
-            <DataTable.Title>Vegetable</DataTable.Title>
-            <DataTable.Title numeric>Qty</DataTable.Title>
-            <DataTable.Title numeric>Price</DataTable.Title>
+            <DataTable.Title>
+              <Title style={{fontFamily: 'Lato-Bold', fontSize: 16}}>TRANSACTION HISTORY</Title>
+            </DataTable.Title>
           </DataTable.Header>
-          <DataTable.Row>
-            <DataTable.Cell>Sayote</DataTable.Cell>
-            <DataTable.Cell numeric>159</DataTable.Cell>
-            <DataTable.Cell numeric>200</DataTable.Cell>
+          <DataTable.Header >
+            <DataTable.Title>Date</DataTable.Title>
+            <DataTable.Title style={{marginLeft: 10}}>Transaction</DataTable.Title>
+            <DataTable.Title style={{marginLeft: 40}}>Buyer</DataTable.Title>
+            <DataTable.Cell ></DataTable.Cell>
+          </DataTable.Header>
+          <DataTable.Row onPress={()=> console.log('view')}>
+            <DataTable.Cell>12/02/2020 </DataTable.Cell>
+            <DataTable.Cell numeric>Bought wholesale malunggay</DataTable.Cell>
+            <DataTable.Cell numeric>Juan Cruz</DataTable.Cell>
+            <DataTable.Cell numeric><MaterialCommunityIcons name="chevron-right" color="#6200EE" size={30} /></DataTable.Cell>
           </DataTable.Row>
-          <DataTable.Row>
-            <DataTable.Cell>Malunggay</DataTable.Cell>
-            <DataTable.Cell numeric>100</DataTable.Cell>
-            <DataTable.Cell numeric>200</DataTable.Cell>
+          <DataTable.Row onPress={()=> console.log('view')}>
+            <DataTable.Cell>12/02/2020 </DataTable.Cell>
+            <DataTable.Cell numeric>Bought wholesale malunggay</DataTable.Cell>
+            <DataTable.Cell numeric>Juan Cruz</DataTable.Cell>
+            <DataTable.Cell numeric><MaterialCommunityIcons name="chevron-right" color="#6200EE" size={30} /></DataTable.Cell>
           </DataTable.Row>
-          <DataTable.Row>
-            <DataTable.Cell>Ampalaya</DataTable.Cell>
-            <DataTable.Cell numeric>237</DataTable.Cell>
-            <DataTable.Cell numeric>200</DataTable.Cell>
+          <DataTable.Row onPress={()=> console.log('view')}>
+            <DataTable.Cell>12/02/2020 </DataTable.Cell>
+            <DataTable.Cell numeric>Bought wholesale malunggay</DataTable.Cell>
+            <DataTable.Cell numeric>Juan Cruz</DataTable.Cell>
+            <DataTable.Cell numeric><MaterialCommunityIcons name="chevron-right" color="#6200EE" size={30} /></DataTable.Cell>
           </DataTable.Row>
-          <DataTable.Row>
-            <DataTable.Cell>Kamote</DataTable.Cell>
-            <DataTable.Cell numeric>237</DataTable.Cell>
-            <DataTable.Cell numeric>200</DataTable.Cell>
+          <DataTable.Row onPress={()=> console.log('view')}>
+            <DataTable.Cell>12/02/2020 </DataTable.Cell>
+            <DataTable.Cell numeric>Bought wholesale malunggay</DataTable.Cell>
+            <DataTable.Cell numeric>Juan Cruz</DataTable.Cell>
+            <DataTable.Cell numeric><MaterialCommunityIcons name="chevron-right" color="#6200EE" size={30} /></DataTable.Cell>
           </DataTable.Row>
-          <DataTable.Row>
-            <DataTable.Cell>Pechay</DataTable.Cell>
-            <DataTable.Cell numeric>237</DataTable.Cell>
-            <DataTable.Cell numeric>200</DataTable.Cell>
+          <DataTable.Row onPress={()=> console.log('view')}>
+            <DataTable.Cell>12/02/2020 </DataTable.Cell>
+            <DataTable.Cell numeric>Bought wholesale malunggay</DataTable.Cell>
+            <DataTable.Cell numeric>Juan Cruz</DataTable.Cell>
+            <DataTable.Cell numeric><MaterialCommunityIcons name="chevron-right" color="#6200EE" size={30} /></DataTable.Cell>
           </DataTable.Row>
-          <DataTable.Row>
-            <DataTable.Cell>Kangkong</DataTable.Cell>
-            <DataTable.Cell numeric>237</DataTable.Cell>
-            <DataTable.Cell numeric>200</DataTable.Cell>
+          <DataTable.Row onPress={()=> console.log('view')}>
+            <DataTable.Cell>12/02/2020 </DataTable.Cell>
+            <DataTable.Cell numeric>Bought wholesale malunggay</DataTable.Cell>
+            <DataTable.Cell numeric>Juan Cruz</DataTable.Cell>
+            <DataTable.Cell numeric><MaterialCommunityIcons name="chevron-right" color="#6200EE" size={30} /></DataTable.Cell>
           </DataTable.Row>
-          <DataTable.Row>
-            <DataTable.Cell>Upo</DataTable.Cell>
-            <DataTable.Cell numeric>237</DataTable.Cell>
-            <DataTable.Cell numeric>200</DataTable.Cell>
+          <DataTable.Row onPress={()=> console.log('view')}>
+            <DataTable.Cell>12/02/2020 </DataTable.Cell>
+            <DataTable.Cell numeric>Bought wholesale malunggay</DataTable.Cell>
+            <DataTable.Cell numeric>Juan Cruz</DataTable.Cell>
+            <DataTable.Cell numeric><MaterialCommunityIcons name="chevron-right" color="#6200EE" size={30} /></DataTable.Cell>
           </DataTable.Row>
-          <DataTable.Row>
-            <DataTable.Cell>Gabi</DataTable.Cell>
-            <DataTable.Cell numeric>237</DataTable.Cell>
-            <DataTable.Cell numeric>200</DataTable.Cell>
+          <DataTable.Row onPress={()=> console.log('view')}>
+            <DataTable.Cell>12/02/2020 </DataTable.Cell>
+            <DataTable.Cell numeric>Bought wholesale malunggay</DataTable.Cell>
+            <DataTable.Cell numeric>Juan Cruz</DataTable.Cell>
+            <DataTable.Cell numeric><MaterialCommunityIcons name="chevron-right" color="#6200EE" size={30} /></DataTable.Cell>
           </DataTable.Row>
-          <DataTable.Row>
-            <DataTable.Cell>Mustasa</DataTable.Cell>
-            <DataTable.Cell numeric>237</DataTable.Cell>
-            <DataTable.Cell numeric>200</DataTable.Cell>
+          <DataTable.Row onPress={()=> console.log('view')}>
+            <DataTable.Cell>12/02/2020 </DataTable.Cell>
+            <DataTable.Cell numeric>Bought wholesale malunggay</DataTable.Cell>
+            <DataTable.Cell numeric>Juan Cruz</DataTable.Cell>
+            <DataTable.Cell numeric><MaterialCommunityIcons name="chevron-right" color="#6200EE" size={30} /></DataTable.Cell>
           </DataTable.Row>
-
+          <DataTable.Row onPress={()=> console.log('view')}>
+            <DataTable.Cell>12/02/2020 </DataTable.Cell>
+            <DataTable.Cell numeric>Bought wholesale malunggay</DataTable.Cell>
+            <DataTable.Cell numeric>Juan Cruz</DataTable.Cell>
+            <DataTable.Cell numeric><MaterialCommunityIcons name="chevron-right" color="#6200EE" size={30} /></DataTable.Cell>
+          </DataTable.Row>
           <DataTable.Pagination
             page={1}
             numberOfPages={3}
