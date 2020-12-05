@@ -17,7 +17,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Profile from '../../../../../assets/images/sampleProfile.jpg'
 import HeaderContainer from '../../../../shared/components/Container/HeaderContainer/HeaderContainer'
 
-const Header = () => {
+const Header = props => {
   const [ratingModal, setRatingModal] = useState(false)
   const [myRatingModal, setMyRatingModal] = useState(false)
 

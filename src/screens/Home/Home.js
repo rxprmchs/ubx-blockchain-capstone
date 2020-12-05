@@ -4,11 +4,11 @@ import { StyleSheet, View, Text, ScrollView} from 'react-native'
 import Header from './components/Header/Header'
 import TransactionHistory from './components/TransactionHistory/TransactionHistory'
 
-const Home = () => {
+const Home = props => {
   return(
     <ScrollView>
       <Header/>
-      <TransactionHistory/>
+      <TransactionHistory navigation={props.navigation}/>
     </ScrollView>
   )
 }
