@@ -1,7 +1,6 @@
 import React from 'react'
 import { View  } from 'react-native'
-import { 
-  Surface, 
+import {  
   Card, 
   Title, 
   Paragraph, 
@@ -13,11 +12,12 @@ import { StyleSheet } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Profile from '../../../../../assets/images/sampleProfile.jpg'
+import HeaderContainer from '../../../../shared/components/Container/HeaderContainer/HeaderContainer'
 
 const Header = () => {
   return(
     <View>
-      <Surface style={styles.surface}>
+      <HeaderContainer>
         <View style={styles.incomeContainer}>
           <View style={{flexDirection: 'row'}}>
             <Paragraph style={{color: '#fff'}}>₱</Paragraph>
@@ -33,7 +33,7 @@ const Header = () => {
               <View style={styles.userAvatar}>
                 <Avatar.Image  size={100} style={{backgroundColor: '#6200EE'}} source={Profile}/>
               </View>
-              <View>
+              <View style={styles.userInfo}>
                 <Text style={{fontFamily: 'Lato-Bold', fontSize: 16,}}>James Andrew Cornes</Text>
                 <Caption style={{fontFamily: 'Lato-Regular'}}>Livestock</Caption>
                 <Caption style={{fontFamily: 'Lato-Regular'}}>Placeholder </Caption>
@@ -41,7 +41,7 @@ const Header = () => {
             </Card.Content>
           </Card>
         </View>
-      </Surface>
+      </HeaderContainer>
       <View style={styles.ratingContainer}>
         <Card style={styles.ratingCardContainer}>
           <Card.Content style={styles.ratingCardContent}>
@@ -66,16 +66,6 @@ const Header = () => {
 )}
 
 const styles = StyleSheet.create({
-  surface: {
-    display: 'flex',
-    flexDirection: 'column',
-    bottom: 0,
-    backgroundColor: '#6200EE',
-    height: 150,
-    width: '100%',
-    alignItems: 'center',
-    elevation: 4,
-  },
   incomeContainer: {
     alignItems: 'center',
     transform: [{translateY: 40}]
@@ -98,13 +88,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   userCardContainer:{
-    width: 320, 
+    width: 380, 
     justifyContent: 'center'
   },
   userCardContent:{
     flexDirection: 'row', 
     alignItems: 'center', 
-    justifyContent: 'space-between'
+    justifyContent: 'flex-start'
   },
   userAvatar:{
     backgroundColor: '#6200EE', 
@@ -113,6 +103,9 @@ const styles = StyleSheet.create({
     height: 110, 
     justifyContent: 'center', 
     alignItems: 'center'
+  },
+  userInfo:{
+    marginLeft: 20,
   },
   ratingContainer:{
     marginTop: 120,  

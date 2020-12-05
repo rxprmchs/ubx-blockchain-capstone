@@ -1,10 +1,21 @@
 import React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View } from 'react-native'
+import { Card, Title, Paragraph } from 'react-native-paper';
 
-const Home = () => {
+import HeaderContianer from '../../shared/components/Container/HeaderContainer/HeaderContainer';
+import CardItem from './components/CardItems';
+
+const Settings = () => {
   return(
-    <View style={styles.container}>
-      <Text>but I'm barely breathin..</Text>
+    <View>
+      <HeaderContianer>
+
+      </HeaderContianer>
+      <View>
+        <CardItem title="Update your information" caption="Update your basic information that will be seen by merchants"/>
+        <CardItem title="Change Username" caption="Chane your username"/>
+        <CardItem title="Change Password" caption="Change your password frequently for safety purposes"/>
+      </View>
     </View>
   )
 }
@@ -20,4 +31,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default Home
+export default Settings
