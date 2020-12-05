@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   btnText: {
     fontFamily: 'Lato-Bold', 
     fontSize: 18, 
-    color: '#FFF'
+    color: '#FFF',
   }
 });
 

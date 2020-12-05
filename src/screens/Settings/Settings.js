@@ -15,12 +15,12 @@ const Settings = props => {
         <CardItem 
           title="Update your information" 
           caption="Update your basic information that will be seen by merchants"
-          onPress={() => props.navigation.navigate('Home')}
+          onPress={() => props.navigation.navigate('Change Information')}
         />
         <CardItem 
           title="Change Username" 
           caption="Chane your username"
-          onPress={() => props.navigation.navigate('Home')}
+          onPress={() => props.navigation.navigate('Change Username')}
         />
         <CardItem 
           title="Change Password" 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View  } from 'react-native'
+import { View, ScrollView } from 'react-native'
 import {  
   Card, 
   Title, 
@@ -8,7 +8,8 @@ import {
   Avatar, 
   Caption, 
   Dialog, 
-  Portal 
+  Portal,
+  DataTable 
   } from 'react-native-paper';
 import { StyleSheet } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -17,10 +18,14 @@ import Profile from '../../../../../assets/images/sampleProfile.jpg'
 import HeaderContainer from '../../../../shared/components/Container/HeaderContainer/HeaderContainer'
 
 const Header = () => {
-  const [visible, setVisible] = useState(false)
+  const [ratingModal, setRatingModal] = useState(false)
+  const [myRatingModal, setMyRatingModal] = useState(false)
 
-  const openRatingHandler = () => setVisible(true)
-  const closeRatingHandler = () => setVisible(false)
+  const openRatingHandler = () => setRatingModal(true)
+  const closeRatingHandler = () => setRatingModal(false)
+
+  const openMyRatingHandler = () => setMyRatingModal(true)
+  const closeMyRatingHandler = () => setMyRatingModal(false)
 
   return(
     <View>
@@ -42,16 +47,16 @@ const Header = () => {
               </View>
               <View style={styles.userInfo}>
                 <Text style={{fontFamily: 'Lato-Bold', fontSize: 16,}}>James Andrew Cornes</Text>
-                <Caption style={{fontFamily: 'Lato-Regular'}}>Livestock</Caption>
-                <Caption style={{fontFamily: 'Lato-Regular'}}>Placeholder </Caption>
+                <Caption style={{fontFamily: 'Lato-Regular'}}>Type: Livestock</Caption>
+                <Caption style={{fontFamily: 'Lato-Regular'}}>Account No.: 123321 </Caption>
               </View>
             </Card.Content>
           </Card>
         </View>
       </HeaderContainer>
       <View style={styles.ratingContainer}>
-        <Card style={styles.ratingCardContainer}>
-          <Card.Content style={styles.ratingCardContent}>
+        <Card style={styles.ratingCardContainer} onPress={openMyRatingHandler}>
+          <Card.Content style={styles.ratingCardContent} >
             <View>
               <Title style={styles.ratingTitle}>9.2</Title>
               <Caption style={styles.ratingCaption}>Your Rating</Caption>
@@ -70,13 +75,40 @@ const Header = () => {
         </Card>
       </View>
       <Portal>
-      <Dialog visible={visible} onDismiss={closeRatingHandler}>
-        <Dialog.Title>Give Rating</Dialog.Title>
-        <Dialog.Content>
-          <Paragraph>Rate the merchant</Paragraph>
-        </Dialog.Content>
-      </Dialog>
-    </Portal>
+        <Dialog visible={ratingModal} onDismiss={closeRatingHandler}>
+          <Dialog.Title>Give Rating</Dialog.Title>
+          <Dialog.Content>
+            <Paragraph>Rate the merchant</Paragraph>
+          </Dialog.Content>
+        </Dialog>
+      </Portal>
+      <Portal>
+        <Dialog visible={myRatingModal} onDismiss={closeMyRatingHandler}>
+          <Dialog.ScrollArea>
+            <ScrollView contentContainerStyle={{paddingHorizontal: 24}}>
+            <DataTable>
+            <DataTable.Header>
+              <DataTable.Title>Buyer</DataTable.Title>
+              <DataTable.Title numeric>Comment</DataTable.Title>
+              <DataTable.Title numeric>Rating</DataTable.Title>
+            </DataTable.Header>
+
+            <DataTable.Row>
+              <DataTable.Cell>Agapito Bagumbayan</DataTable.Cell>
+              <DataTable.Cell numeric>Ayos!</DataTable.Cell>
+              <DataTable.Cell numeric>9.5</DataTable.Cell>
+            </DataTable.Row>
+
+            <DataTable.Row>
+              <DataTable.Cell>Jose  Rizal</DataTable.Cell>
+              <DataTable.Cell numeric>Nice!</DataTable.Cell>
+              <DataTable.Cell numeric>9.0</DataTable.Cell>
+            </DataTable.Row>
+            </DataTable>
+            </ScrollView>
+          </Dialog.ScrollArea>
+        </Dialog>
+      </Portal>
     </View>
 )}
 
@@ -100,11 +132,12 @@ const styles = StyleSheet.create({
   },
   userContainer: {
     transform: [{translateY: 50}],
-    justifyContent: 'center'
+    justifyContent: 'center', 
   },
   userCardContainer:{
-    width: 380, 
-    justifyContent: 'center'
+    minWidth: '90%',
+    marginBottom: 5,
+    justifyContent: 'center',
   },
   userCardContent:{
     flexDirection: 'row', 
