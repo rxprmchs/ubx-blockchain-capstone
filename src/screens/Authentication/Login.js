@@ -67,6 +67,27 @@ const Login = props => {
           <Text style={styles.btnText}>Login</Text>
         </Button>
         <Text style={styles.textNoAccount}>Don't have an account?</Text>
+        <View style={{flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center'}}>
+          <Button 
+            mode="contained" 
+            style={styles.createBtn}
+            onPress={loginHandler}
+            uppercase
+            onPress={() => props.navigation.navigate('Farmer Signup')}
+            >
+            <Text style={styles.btnCreateText}>Create Farmer</Text>
+          </Button>
+            <Text style={{textAlign: 'center'}}>OR</Text>
+            <Button 
+              mode="contained" 
+              style={styles.createBtn}
+              onPress={loginHandler}
+              uppercase
+              onPress={() => props.navigation.navigate('Wholesaler Signup')}
+            >
+              <Text style={styles.btnCreateText}>Create Wholesaler</Text>
+          </Button>
+        </View>
       </Surface>
     </BgLeaf>
   )
@@ -104,6 +125,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textDecorationColor: '#6200ee',
     fontFamily: 'Lato-Bold',
+    marginBottom: 10
   },
   textInput: {
     marginTop: 10,
@@ -119,9 +141,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     fontSize: 50, 
   },
+  createBtn:{
+   padding: 10,
+    height: 50,
+    width: 200,
+    justifyContent: 'center',
+    fontSize: 50, 
+  },
   btnText: {
     fontFamily: 'Lato-Bold', 
     fontSize: 18, 
+    color: '#FFF'
+  },
+  btnCreateText: {
+    fontFamily: 'Lato-Bold', 
+    fontSize: 10,
     color: '#FFF'
   }
 });

@@ -6,20 +6,23 @@ import {
   Paragraph, 
   Text, 
   Avatar, 
+  Button ,
   Caption, 
+  TextInput,
   Dialog, 
   Portal,
   DataTable 
   } from 'react-native-paper';
 import { StyleSheet } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { Rating, AirbnbRating } from 'react-native-ratings';
 
 
 import HeaderContainer from '../../../../../shared/components/Container/HeaderContainer/HeaderContainer'
 
 const TransactionDetails = () => {
   return(
-    <View>
+    <ScrollView>
       <HeaderContainer>
         <View style={styles.incomeContainer}>
           <View>
@@ -30,26 +33,38 @@ const TransactionDetails = () => {
           <Card elevation={4} style={styles.userCardContainer}>
             <Card.Content>
               <Text>Transaction ID: 032123123</Text>
-              <Text>Transaction Date: 12/07/2020</Text>
-              <Text>Transactor: Plaridel Ralpi</Text>
-              <Text>Description: </Text>
+              <Text>Wholesaler ID: 12/07/2020</Text>
+              <Text>Status: Plaridel Ralpi</Text>
+              <Text>Delivery Send Date: </Text>
+              <Text>Delivery Received Date: </Text>
+              <Text>Delivery Description: </Text>
             </Card.Content>
           </Card>
         </View>
       </HeaderContainer>
       <View style={{flexDirection: 'row', marginTop: 200}}>
-        <Card elevation={4} style={styles.ratingContainer}>
+        <Card onPress={()=>console.log('Pressed!')} style={{width: '100%'}}>
           <Card.Content style={styles.ratingCardContent}>
-            <Text>Received Rating: 5.0</Text>
+            <Text>Give Rating</Text>
+            <AirbnbRating
+              count={5}
+              reviews={["Bad", "Okay", "Good", "Very good!", "Great!"]}
+              defaultRating={3}
+              reviewSize={15}
+              size={25}
+            />
+            <TextInput
+              multiline={true}
+              numberOfLines={4}
+              label="Description"
+           />
+            <Button mode="contained" onPress={() => console.log('Pressed')}>
+              Submit
+            </Button>
           </Card.Content>
         </Card>
       </View>
-      <Card style={{margin: 10, width: '49%'}}>
-        <Card.Content style={styles.ratingCardContent}>
-          <Text>View Profile</Text>
-        </Card.Content>
-      </Card>
-    </View>
+    </ScrollView>
 )}
 
 const styles = StyleSheet.create({
@@ -95,10 +110,8 @@ const styles = StyleSheet.create({
   ratingCardContent:{
     borderLeftWidth: 2, 
     borderLeftColor: '#6200EE',
-    height: 100,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: 'column',
+    margin: 5
   },
   ratingTitle:{
     fontFamily: 'Lato-Bold'
