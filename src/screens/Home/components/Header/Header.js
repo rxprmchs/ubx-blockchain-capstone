@@ -13,6 +13,7 @@ import {
   } from 'react-native-paper';
 import { StyleSheet } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { AirbnbRating } from 'react-native-ratings';
 
 import Profile from '../../../../../assets/images/sampleProfile.jpg'
 import HeaderContainer from '../../../../shared/components/Container/HeaderContainer/HeaderContainer'
@@ -58,7 +59,14 @@ const Header = props => {
         <Card style={styles.ratingCardContainer} onPress={openMyRatingHandler}>
           <Card.Content style={styles.ratingCardContent} >
             <View>
-              <Title style={styles.ratingTitle}>9.2</Title>
+              <Title style={styles.ratingTitle}> 
+                <AirbnbRating
+                  count={5}
+                  defaultRating={4.5}
+                  size={15}
+                  isDisabled
+                />
+              </Title>
               <Caption style={styles.ratingCaption}>Your Rating</Caption>
             </View>
             <MaterialCommunityIcons name="corn" color="#6200EE" size={30} />
@@ -88,7 +96,7 @@ const Header = props => {
             <ScrollView contentContainerStyle={{paddingHorizontal: 24}}>
             <DataTable>
             <DataTable.Header>
-              <DataTable.Title>Buyer</DataTable.Title>
+              <DataTable.Title>Reviewer ID</DataTable.Title>
               <DataTable.Title numeric>Comment</DataTable.Title>
               <DataTable.Title numeric>Rating</DataTable.Title>
             </DataTable.Header>
@@ -96,13 +104,13 @@ const Header = props => {
             <DataTable.Row>
               <DataTable.Cell>Agapito Bagumbayan</DataTable.Cell>
               <DataTable.Cell numeric>Ayos!</DataTable.Cell>
-              <DataTable.Cell numeric>9.5</DataTable.Cell>
+              <DataTable.Cell numeric>4.0</DataTable.Cell>
             </DataTable.Row>
 
             <DataTable.Row>
               <DataTable.Cell>Jose  Rizal</DataTable.Cell>
               <DataTable.Cell numeric>Nice!</DataTable.Cell>
-              <DataTable.Cell numeric>9.0</DataTable.Cell>
+              <DataTable.Cell numeric>5.0</DataTable.Cell>
             </DataTable.Row>
             </DataTable>
             </ScrollView>

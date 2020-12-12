@@ -8,11 +8,11 @@ import { formatDate } from './../../../../shared/utils'
 const TransactionHistory = (props) => {
   const TransactionHistoryComponent = dummyTransactions.map(item => {
     return(
-      <DataTable.Row  onPress={() => props.navigation.navigate('Transaction Details')}>
+      <DataTable.Row key={item.body.transactionId} onPress={() => props.navigation.navigate('Transaction Details', {transaction: item.body})}>
         <DataTable.Cell>{formatDate(item.body.deliveryRecieveDate)}</DataTable.Cell>
-        <DataTable.Cell numeric>{item.body.deliveryDesc}</DataTable.Cell>
-        <DataTable.Cell numeric>{item.body.staus}</DataTable.Cell>
-        <DataTable.Cell numeric><MaterialCommunityIcons name="chevron-right" color="#6200EE" size={30} /></DataTable.Cell>
+        <DataTable.Cell >{item.body.deliveryDesc}</DataTable.Cell>
+        <DataTable.Cell >{item.body.status}</DataTable.Cell>
+        <DataTable.Cell ><MaterialCommunityIcons name="chevron-right" color="#6200EE" size={30} /></DataTable.Cell>
       </DataTable.Row>
     )
   })

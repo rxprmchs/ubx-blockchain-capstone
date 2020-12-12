@@ -17,13 +17,13 @@ import { StyleSheet } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 
-
 import HeaderContainer from '../../../../../shared/components/Container/HeaderContainer/HeaderContainer'
+import { formatDate } from '../../../../../shared/utils'
 
-const TransactionDetails = () => {
+const TransactionDetails = (props) => {
+  const { transaction } = props.route.params;
   return(
-    <ScrollView>
-      <HeaderContainer>
+    <ScrollView style={{backgroundColor: "#6200EE"}}>
         <View style={styles.incomeContainer}>
           <View>
             <Text style={styles.incomeSubTitle}>TRANSACTION DETAILS</Text>
@@ -32,17 +32,16 @@ const TransactionDetails = () => {
         <View style={styles.userContainer}>
           <Card elevation={4} style={styles.userCardContainer}>
             <Card.Content>
-              <Text>Transaction ID: 032123123</Text>
-              <Text>Wholesaler ID: 12/07/2020</Text>
-              <Text>Status: Plaridel Ralpi</Text>
-              <Text>Delivery Send Date: </Text>
-              <Text>Delivery Received Date: </Text>
-              <Text>Delivery Description: </Text>
+              <Text>Transaction ID: {transaction.transactionId}</Text>
+              <Text>Wholesaler ID: {transaction.wholesalerId}</Text>
+              <Text>Status: {transaction.status}</Text>
+              <Text>Delivery Send Date: {formatDate(transaction.deliverySendDate)}</Text>
+              <Text>Delivery Receive Date:{formatDate(transaction.deliveryRecieveDate)} </Text>
+              <Text>Delivery Description: {transaction.deliveryDesc}</Text>
             </Card.Content>
           </Card>
         </View>
-      </HeaderContainer>
-      <View style={{flexDirection: 'row', marginTop: 200}}>
+      <View style={{flexDirection: 'row',}}>
         <Card onPress={()=>console.log('Pressed!')} style={{width: '100%'}}>
           <Card.Content style={styles.ratingCardContent}>
             <Text>Give Rating</Text>
@@ -70,7 +69,7 @@ const TransactionDetails = () => {
 const styles = StyleSheet.create({
   incomeContainer: {
     alignItems: 'center',
-    transform: [{translateY: 40}]
+    marginTop: 40
   },
   incomeTitle:{
     fontSize: 40,
@@ -83,15 +82,16 @@ const styles = StyleSheet.create({
     letterSpacing: 3
   },
   userIcon: {
-    transform: [{ translateY: -100 }]
   },
   userContainer: {
-    transform: [{translateY: 90}],
     justifyContent: 'center', 
+    marginTop: 20
   },
   userCardContainer:{
     minWidth: '90%',
-    marginBottom: 5,
+    marginLeft: 10,
+    marginRight: 10,
+    marginBottom: 10,
     height: 250,
     justifyContent: 'center',
   },

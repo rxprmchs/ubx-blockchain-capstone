@@ -1,6 +1,16 @@
 import React, { useState } from 'react'
 import { StyleSheet, View } from 'react-native'
-import { TextInput, Button, Avatar, Title, Surface, Text  } from 'react-native-paper'
+import { 
+  TextInput, 
+  Button, 
+  Avatar, 
+  Title, 
+  Surface, 
+  Text,
+  Modal, 
+  Portal,
+  Provider
+} from 'react-native-paper'
 
 import BgLeaf from '../../shared/components/Container/BgLeaf/BgLeaf'
 
@@ -9,6 +19,10 @@ const Login = props => {
   const [passwod, setPassword] = useState('')
   const [userError, setUserError] = useState(false)
   const [passError, setPassError] = useState(false)
+  const [visible, setVisible] = useState(false);
+
+  const showModal = () => setVisible(true);
+  const hideModal = () => setVisible(false);
 
   const handleUsername = text => {
     setUsername(text)
@@ -32,7 +46,18 @@ const Login = props => {
     setPassword('')
     }
   }
+
+  const createFarmerHandler = () => {
+    setVisible(false)
+    props.navigation.navigate('Farmer Signup')
+  }
+
+  const createWholeSalerHandler = () => {
+    setVisible(false)
+    props.navigation.navigate('Wholesaler Signup')
+  }
   
+
   return(
     <BgLeaf>
       <Surface style={styles.loginContainer}>
@@ -66,28 +91,34 @@ const Login = props => {
         >
           <Text style={styles.btnText}>Login</Text>
         </Button>
-        <Text style={styles.textNoAccount}>Don't have an account?</Text>
-        <View style={{flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center'}}>
-          <Button 
-            mode="contained" 
-            style={styles.createBtn}
-            onPress={loginHandler}
-            uppercase
-            onPress={() => props.navigation.navigate('Farmer Signup')}
-            >
-            <Text style={styles.btnCreateText}>Create Farmer</Text>
-          </Button>
-            <Text style={{textAlign: 'center'}}>OR</Text>
-            <Button 
-              mode="contained" 
-              style={styles.createBtn}
-              onPress={loginHandler}
-              uppercase
-              onPress={() => props.navigation.navigate('Wholesaler Signup')}
-            >
-              <Text style={styles.btnCreateText}>Create Wholesaler</Text>
-          </Button>
-        </View>
+        <Text onPress={showModal} style={styles.textNoAccount}>Don't have an account?</Text>
+        <Portal>
+          <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={styles.modal}>
+            <View style={{flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center'}}>
+              <Title style={{fontFamily: 'Lato-Bold'}}>Choose Account Type</Title>
+              <View style={{ borderBottomColor: '#6200ee', borderBottomWidth: 2, width: 100, marginBottom: 10,}}/>
+              <Button 
+                mode="contained" 
+                style={styles.createBtn}
+                onPress={loginHandler}
+                uppercase
+                onPress={() => createFarmerHandler()}
+                >
+                <Text style={styles.btnCreateText}>Create Farmer</Text>
+              </Button>
+                <Text style={{textAlign: 'center'}}>OR</Text>
+                <Button 
+                  mode="contained" 
+                  style={styles.createBtn}
+                  onPress={loginHandler}
+                  uppercase
+                  onPress={() => createWholeSalerHandler()}
+                >
+                  <Text style={styles.btnCreateText}>Create Wholesaler</Text>
+              </Button>
+            </View>
+          </Modal>
+        </Portal>
       </Surface>
     </BgLeaf>
   )
@@ -122,10 +153,14 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   textNoAccount:{
+    fontSize: 16,
     textAlign: 'center',
     textDecorationColor: '#6200ee',
     fontFamily: 'Lato-Bold',
-    marginBottom: 10
+    marginBottom: 10,
+    textDecorationLine: "underline",
+    textDecorationStyle: "solid",
+    textDecorationColor: "#000"
   },
   textInput: {
     marginTop: 10,
@@ -142,7 +177,8 @@ const styles = StyleSheet.create({
     fontSize: 50, 
   },
   createBtn:{
-   padding: 10,
+    padding: 10,
+    margin: 10,
     height: 50,
     width: 200,
     justifyContent: 'center',
@@ -157,6 +193,11 @@ const styles = StyleSheet.create({
     fontFamily: 'Lato-Bold', 
     fontSize: 10,
     color: '#FFF'
+  },
+  modal:{
+    backgroundColor: '#fff',
+    padding: 50,
+    margin: 20,
   }
 });
 
