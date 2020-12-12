@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DataTable, Card, Title } from 'react-native-paper';
+import { DataTable, Card, Title  } from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import dummyTransactions from './components/dummyTransaction'
@@ -9,9 +9,9 @@ const TransactionHistory = (props) => {
   const TransactionHistoryComponent = dummyTransactions.map(item => {
     return(
       <DataTable.Row  onPress={() => props.navigation.navigate('Transaction Details')}>
-        <DataTable.Cell>{item.body.deliveryRecieveDate} </DataTable.Cell>
-        <DataTable.Cell numeric>Bought wholesale malunggay</DataTable.Cell>
-        <DataTable.Cell numeric>Juan Cruz</DataTable.Cell>
+        <DataTable.Cell>{formatDate(item.body.deliveryRecieveDate)}</DataTable.Cell>
+        <DataTable.Cell numeric>{item.body.deliveryDesc}</DataTable.Cell>
+        <DataTable.Cell numeric>{item.body.staus}</DataTable.Cell>
         <DataTable.Cell numeric><MaterialCommunityIcons name="chevron-right" color="#6200EE" size={30} /></DataTable.Cell>
       </DataTable.Row>
     )
@@ -32,7 +32,7 @@ const TransactionHistory = (props) => {
             <DataTable.Title>Status</DataTable.Title>
             <DataTable.Title></DataTable.Title>
           </DataTable.Header>
-         
+          {TransactionHistoryComponent}
           <DataTable.Pagination
             page={1}
             numberOfPages={3}
