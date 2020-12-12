@@ -7,7 +7,7 @@ import TransactionHistory from './components/TransactionHistory/TransactionHisto
 const Home = props => {
   return(
     <ScrollView>
-      <Header/>
+      <Header navigation={props.navigation}/>
       <TransactionHistory navigation={props.navigation}/>
     </ScrollView>
   )

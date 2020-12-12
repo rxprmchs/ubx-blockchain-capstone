@@ -72,7 +72,7 @@ const Header = props => {
             <MaterialCommunityIcons name="star-circle" color="#6200EE" size={30} />
           </Card.Content>
         </Card>
-        <Card style={styles.ratingCardContainer} onPress={openRatingHandler}>
+        <Card style={styles.ratingCardContainer} onPress={()=> props.navigation.navigate('Manage')}>
           <Card.Content style={styles.ratingCardContent}>
             <View>
               <Title style={styles.ratingTitle}>Products</Title>
