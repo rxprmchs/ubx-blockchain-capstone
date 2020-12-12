@@ -67,7 +67,7 @@ const TransactionDetails = (props) => {
               <View>
                 <Caption style={styles.fontBold}>Delivery Description</Caption>
                   <TextInput
-                    style={{minWidth: '100%', borderBottomColor: '#6200EE', borderBottomWidth: 2}}
+                    style={{minWidth: '100%', borderBottomColor: '#6200EE', borderBottomWidth: 2, backgroundColor: '#EFF7FF'}}
                     multiline={true}
                     numberOfLines={5}
                     editable={false}
@@ -94,34 +94,12 @@ const TransactionDetails = (props) => {
             </Card.Content>
           </Card>
         </View>
-      {/* <View style={{flexDirection: 'row',}}>
-        <Card onPress={()=>console.log('Pressed!')} style={{width: '100%'}}>
-          <Card.Content style={styles.ratingCardContent}>
-            <Text>Give Rating</Text>
-            <AirbnbRating
-              count={5}
-              reviews={["Bad", "Okay", "Good", "Very good!", "Great!"]}
-              defaultRating={3}
-              reviewSize={15}
-              size={25}
-            />
-            <TextInput
-              multiline={true}
-              numberOfLines={4}
-              label="Description"
-           />
-            <Button mode="contained" onPress={() => console.log('Pressed')}>
-              Submit
-            </Button>
-          </Card.Content>
-        </Card>
-      </View> */}
       <Portal>
         <Dialog visible={visible} onDismiss={hideDialog}>
           <Dialog.Title style={{fontFamily: 'Lato-Bold', color: '#6200EE'}}>Give a Rating</Dialog.Title>
           <Dialog.Content>
             <TextInput
-              style={{minWidth: '100%', marginTop: 10, borderBottomColor: '#6200EE', borderBottomWidth: 2, fontSize: 14, fontFamily: 'Lato-Regularasdasd'}}
+              style={{minWidth: '100%', marginTop: 10, borderBottomColor: '#6200EE', borderBottomWidth: 2, backgroundColor: '#EFF7FF', fontSize: 14, fontFamily: 'Lato-Regularasdasd'}}
               multiline={true}
               numberOfLines={5}
               label="Comment(Optional)"
