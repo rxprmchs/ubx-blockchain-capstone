@@ -12,6 +12,11 @@ import ChangeInformation from '../../../screens/Settings/pages/ChangeInformation
 import ChangeUsername from '../../../screens/Settings/pages/ChangeUsername/ChangeUsername'
 import ChangePassword from '../../../screens/Settings/pages/ChangePassword/ChangePassword'
 
+import ManageProducts from '../../../screens/ManageProducts/ManageProducts'
+import ProductInfo from '../../../screens/ManageProducts/pages/ProductInfo/ProductInfo'
+import ChangeUsername3 from '../../../screens/ManageProducts/pages/ChangeUsername/ChangeUsername'
+import AddProduct from '../../../screens/ManageProducts/pages/AddProduct/AddProduct'
+
 const Stack = createStackNavigator()
 const Tab = createMaterialBottomTabNavigator();
 
@@ -41,6 +46,18 @@ const MainMenu = props => {
     </>
     )
   }
+  const ManageComponents = () => {
+    return(
+      <>
+      <Stack.Navigator initialRouteName="Manage" headerMode="none">
+        <Stack.Screen name="Manage Products" component={ManageProducts} options={{ title: "Settings" }}/>
+        <Stack.Screen name="Product Info" component={ProductInfo} options={{ title: "Product Info" }}/>
+        <Stack.Screen name="Change Username" component={ChangeUsername3} options={{ title: "Change Username" }}/>
+        <Stack.Screen name="Add Product" component={AddProduct} options={{ title: "Add Product" }}/>
+      </Stack.Navigator>
+    </>
+    )
+  }
   
 
 return (
@@ -59,6 +76,16 @@ return (
         tabBarLabel: 'Home',
         tabBarIcon: ({ color }) => (
           <MaterialCommunityIcons name="apps" color={color} size={26} />
+        ),
+      }}
+    />
+    <Tab.Screen 
+      name="Manage" 
+      children={ManageComponents} 
+      options={{
+        tabBarLabel: 'Manage',
+        tabBarIcon: ({ color }) => (
+          <MaterialCommunityIcons name="treasure-chest" color={color} size={26} />
         ),
       }}
     />
