@@ -1,18 +1,5 @@
 import moment from 'moment';
-import AsyncStorage from "@react-native-community/async-storage";
-import * as MediaLibrary from 'expo-media-library';
-import * as FileSystem from 'expo-file-system';
-import * as Permissions from 'expo-permissions';
-
-export const saveFile = async (obj) => {
-    const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
-    if (status === "granted") {
-        let fileUri = FileSystem.documentDirectory + "console.txt";
-        await FileSystem.writeAsStringAsync(fileUri, JSON.stringify(obj), { encoding: FileSystem.EncodingType.UTF8 });
-        const asset = await MediaLibrary.createAssetAsync(fileUri)
-        await MediaLibrary.createAlbumAsync("Download", asset, false)
-    }
-}
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const storeData = async (key, value) => {
     try {
@@ -32,55 +19,6 @@ export const getData = async (key) => {
       // error reading value
     }
   }
-export const insertInsuranceNameAndIcon = (policy_type, active_premium_interval) => {
-    switch(policy_type){
-        case 'life':
-            return {
-                policyTitle:'Life Insurance',      
-                iconColor: '#E72614',
-                icon: 'heart-pulse',  
-                policyTypeColor: '#005DBE',
-                interval: capitalizeFirstLetter(active_premium_interval)
-            }
-        case 'health':
-            return {
-                policyTitle:'Health Insurance',
-                iconColor: '#00AC49',
-                icon: 'account-heart',  
-                policyTypeColor: '#005DBE',
-                interval: capitalizeFirstLetter(active_premium_interval)
-            }
-        case 'home':
-            return {
-                policyTitle:'Home Insurance',
-                iconColor: '#EBC50E',
-                icon: 'home',
-                policyTypeColor: '#005DBE',
-                // policyTypeColor: '#EBC50E',
-                interval: capitalizeFirstLetter(active_premium_interval)
-            }
-        case 'car':
-            return {
-                policyTitle:'Car Insurance',
-                iconColor: '#005DBE',
-                icon: 'car',
-                policyTypeColor: '#005DBE',
-                // policyTypeColor: '#00AC49',
-                interval: capitalizeFirstLetter(active_premium_interval)
-
-            }
-        case 'vul':
-            return {
-                policyTitle:'Variable Universal Life Insurance',
-                icon: 'heart-pulse',
-                iconColor: '#E72614',
-                policyTypeColor: '#005DBE',
-                // policyTypeColor: '#E72614',/
-                interval: capitalizeFirstLetter(active_premium_interval)
-              }                
-
-    }
-}
 
 const numberToString = number =>
   typeof number === 'string' ? number : number.toString();
@@ -105,21 +43,6 @@ export const capitalizeFirstLetter = (string) => {
     
 }
 
-export const returnInsuranceInterval = (active_premium_interval) => {
-    switch(active_premium_interval){
-        case 'life':
-            return 'Life Insurance'
-        case 'health':
-            return 'Health Insurance'
-        case 'home':
-            return 'Home Insurance'
-        case 'car':
-            return 'Car Insurance'
-        case 'vul':
-            return 'Variable Universal Life Insurance'                     
-
-    }
-}
 
 export const validateNameAlphaSpace = (name) =>{
     let pattern = /^[a-zA-Z\u00f1\u00d1]*$/
@@ -185,30 +108,6 @@ export const validateNumber = number => {
   }
 }
 
-export const getNextPayment = (initDate, interval) => {
-  let nextDate = new Date (initDate.valueOf());
-  switch(interval){
-    case 'one_time':
-      nextDate.setDate(nextDate.getDate() + 1);
-      break;
-    case 'annual':
-      nextDate.setYear(nextDate.getFullYear() + 1);
-      break;
-    case 'semi_annual':
-      nextDate.setMonth(nextDate.getMonth() + 6);
-      break;
-    case 'quarterly':
-      nextDate.setMonth(nextDate.getMonth() + 3);
-      break;
-    case 'monthly':
-      nextDate.setMonth(nextDate.getMonth() + 1);
-      break;
-    default:
-      nextDate =  new Date(Date.UTC(0, 0, 1));
-      break;
-  }    
-  return nextDate;
-}
 
 export const dateToString = (date) => {
   let year = date.getFullYear();
