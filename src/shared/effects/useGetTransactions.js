@@ -1,12 +1,12 @@
 import React from 'react'
-import { TRANSAC_HIST } from '../routes.js'
+import { TRANSACTIONS } from '../routes.js'
 import {
   getData
 } from '../utils.js'
  
-const getTransactionHistory = async (insuree_id) => {
+const getTransactions = async (user_id) => {
 
-  let url = `${TRANSAC_HIST}/${insuree_id}/transactions`
+  let url = `${TRANSACTIONS}/${user_id}/`
   const key = await getData("key");
   const options =  {
     method: "GET",
@@ -19,8 +19,6 @@ const getTransactionHistory = async (insuree_id) => {
   try {
     let res = await fetch(url, options) 
     let json = await res.json()
-   
-    
     return json;
     
   } catch(err) {
@@ -31,5 +29,5 @@ const getTransactionHistory = async (insuree_id) => {
 }
 
 
-export default getTransactionHistory
+export default getTransactions
 

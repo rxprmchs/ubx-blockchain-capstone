@@ -1,14 +1,12 @@
-const SERVER = '188.166.179.84/';
+const SERVER = 'localhost:8080/';
 // const PORT = '8000/';
-const API_ENDPOINT = 'api/v1/';
+const API_ENDPOINT = 'api-docs/';
 
 module.exports = {
-    INSUREEPOLICIES: `http://${SERVER}${API_ENDPOINT}insureepolicy`,
-    POLICYINFODATA: `http://${SERVER}${API_ENDPOINT}policy`,
-    PAYMENT: `http://${SERVER}${API_ENDPOINT}payment`,
-    TEMPLATE_IDS: `http://${SERVER}${API_ENDPOINT}kyc/template_ids`,
-    VERIFY_ID: `http://${SERVER}${API_ENDPOINT}kyc/verify`,
-    TRANSAC_HIST: `http://${SERVER}${API_ENDPOINT}insuree`,
+    CREATE_FARMER: `http://${SERVER}${API_ENDPOINT}api/user/add`,
+    GOODS: `http://${SERVER}${API_ENDPOINT}api/goods`,
+    TRANSACTIONS: `http://${SERVER}${API_ENDPOINT}api/transactions`,
+    REVIEWS: `http://${SERVER}${API_ENDPOINT}api/reviews`,
 };
 
 
