@@ -63,22 +63,22 @@ const Header = props => {
                 <AirbnbRating
                   count={5}
                   defaultRating={4.5}
-                  size={15}
+                  size={12}
                   isDisabled
                 />
               </Title>
               <Caption style={styles.ratingCaption}>Your Rating</Caption>
             </View>
-            <MaterialCommunityIcons name="corn" color="#6200EE" size={30} />
+            <MaterialCommunityIcons name="star-circle" color="#6200EE" size={30} />
           </Card.Content>
         </Card>
         <Card style={styles.ratingCardContainer} onPress={openRatingHandler}>
           <Card.Content style={styles.ratingCardContent}>
             <View>
-              <Title style={styles.ratingTitle}>Feedback</Title>
-              <Caption style={styles.ratingCaption}>Give Rating</Caption>
+              <Title style={styles.ratingTitle}>Products</Title>
+              <Caption style={styles.ratingCaption}>Your Products</Caption>
             </View>
-            <MaterialCommunityIcons name="star-circle" color="#6200EE" size={30} />
+            <MaterialCommunityIcons name="corn" color="#6200EE" size={30} />
           </Card.Content>
         </Card>
       </View>

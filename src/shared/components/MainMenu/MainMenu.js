@@ -42,28 +42,6 @@ const MainMenu = props => {
     )
   }
   
-  const Logout = () => {
-    return(
-      <View>
-        <Portal>
-          <Dialog visible={() => setVisible(true)} onDismiss={hideDialog}>
-            <Dialog.Title>Alert</Dialog.Title>
-            <Dialog.Content>
-              <Paragraph>Do you want to sign out?</Paragraph>
-            </Dialog.Content>
-            <Dialog.Actions>
-              <Button onPress={hideDialog}>Yes</Button>
-            </Dialog.Actions>
-          </Dialog>
-        </Portal>
-      </View>
-    )
-  }
-
-  const hideDialog = () => {
-    setVisible(false);
-    props.navigation.navigate('Authentication')
-  }
 
 return (
   <Tab.Navigator 
@@ -90,17 +68,7 @@ return (
       options={{
         tabBarLabel: 'Settings',
         tabBarIcon: ({ color }) => (
-          <MaterialCommunityIcons name="buffer" color={color} size={26} />
-        ),
-      }}
-    />
-    <Tab.Screen 
-      name="Logout" 
-      children={Logout} 
-      options={{
-        tabBarLabel: 'Logout',
-        tabBarIcon: ({ color }) => (
-          <MaterialCommunityIcons name="logout" color={color} size={26} />
+          <MaterialCommunityIcons name="settings" color={color} size={26} />
         ),
       }}
     />

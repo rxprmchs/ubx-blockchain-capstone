@@ -11,7 +11,7 @@ const CardItem = props => {
           <Title style={styles.cardTitle}>{props.title}</Title>
           <Caption style={styles.cardCaption}>{props.caption}</Caption>
         </View>
-        <MaterialCommunityIcons name="chevron-right" color="#6200EE" size={30} />
+        {/* <MaterialCommunityIcons name="chevron-right" color="#6200EE" size={30} /> */}
       </Card.Content>
     </Card>
 )}
