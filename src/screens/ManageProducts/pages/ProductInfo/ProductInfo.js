@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Alert } from 'react-native';
 import { TextInput, Button, Text, Card, Title, Caption  } from 'react-native-paper';
 import HeaderContianer from '../../../../shared/components/Container/HeaderContainer/HeaderContainer';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -10,6 +10,26 @@ const ProductInfo = (props) => {
   const [goodsInfo, setgoodsInfo] = useState(props.route.params.item)
   const [usernameErr, setUsernameErr] = useState(false)
 
+  const confirmDelete = () => {
+    Alert.alert(
+      'Delete Product',
+      'Are you sure you want to delete the product?',
+      [
+        {
+            text: "Cancel",
+            style: "cancel",
+        },
+        { text: "Delete", 
+          onPress: () => {
+            props.route.params.deleteGoods()
+            props.navigation.navigate('Manage Products')
+          } 
+        },
+      ],
+      { cancelable: true }
+    )
+    props.route.params
+  }
 
   console.log(props.route.params)
   return (
@@ -39,6 +59,26 @@ const ProductInfo = (props) => {
           {/* <MaterialCommunityIcons name="chevron-right" color="#6200EE" size={30} /> */}
         </Card.Content>
       </Card>
+      <View
+        style={{flexDirection: 'row'}}
+      >
+        <Button 
+          icon="plus" 
+          mode="outlined" 
+          style={{...styles.btn}}
+          onPress={() => {confirmDelete()}}
+        >
+          DELETE PRODUCT
+        </Button>
+        <Button 
+          icon="plus" 
+          mode="contained" 
+          style={{...styles.btn}}
+          onPress={() => props.navigation.navigate('Edit Product', {item: props.route.params.item})}
+        >
+          EDIT PRODUCT
+        </Button>
+      </View>
       {/* <TextInput
         label="Change Username"
         mode="flat"

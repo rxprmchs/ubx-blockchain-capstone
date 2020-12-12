@@ -1,25 +1,26 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, Alert } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, View, Alert, BackHandler } from 'react-native';
 import { TextInput, Button, Text, Card, Title, Paragraph, Caption,  } from 'react-native-paper';
 import HeaderContianer from '../../../../shared/components/Container/HeaderContainer/HeaderContainer';
 import { ScrollView } from 'react-native-gesture-handler';
 
-const AddProduct = (props) => {
+const EditProduct = (props) => {
   const [currentPassword, setCurrentPassowrd] = useState('')
   const [newPassword, setNewPassowrd] = useState('')
   const [confirmPassowrd, setConfirmPassword] = useState('')
   const [currentPassErr, setCurrentPassErr] = useState(false)
   const [newPassErr, setNewPassErr] = useState(false)
   const [confirmPassErr, setConfirmPassErr] = useState(false)
-
-  const [goodsName, setgoodsName] = useState('')
-  const [quantityType, setquantityType] = useState('')
-  const [quantityValue, setquantityValue] = useState('')
-  const [amountPerUnit, setamountPerUnit] = useState('')
-  const [amount, setamount] = useState('')
-  const [additionalDesc, setadditionalDesc] = useState('')
-  const [plantationDate, setplantationDate] = useState('')
-  const [harvestDate, setharvestDate] = useState('')
+  
+  const [item, setitem] = useState(props.route.params.item)
+  const [goodsName, setgoodsName] = useState(props.route.params.item.goodsName)
+  const [quantityType, setquantityType] = useState(props.route.params.item.quantityType)
+  const [quantityValue, setquantityValue] = useState(props.route.params.item.quantityValue)
+  const [amountPerUnit, setamountPerUnit] = useState(props.route.params.item.amountPerUnit)
+  const [amount, setamount] = useState(props.route.params.item.amount)
+  const [additionalDesc, setadditionalDesc] = useState(props.route.params.item.additionalDesc)
+  const [plantationDate, setplantationDate] = useState(props.route.params.item.plantationDate)
+  const [harvestDate, setharvestDate] = useState(props.route.params.item.harvestDate)
   const [product, setproduct] = useState('')
 
   let sdafdsfg = {
@@ -32,6 +33,34 @@ const AddProduct = (props) => {
     plantationDate : '2008-01-01 00:00:01',
     harvestDate : '2008-01-01 00:00:01',
   }
+
+  useEffect(() => {
+    
+    const backAction = () => {
+      Alert.alert(
+        'Edit Product',
+        'Discard changes?',
+        [
+          {
+              text: "Cancel",
+              style: "cancel",
+          },
+          { text: "Discard", 
+            onPress: () => {
+              props.navigation.goBack()
+            } 
+          },
+        ],
+        { cancelable: true }
+      )
+        return true;
+    };
+    const backHandler = BackHandler.addEventListener(
+        "hardwareBackPress",
+        backAction
+        );
+        return () => backHandler.remove();
+    },[])
 
   const validateInputs = () => {
     if(
@@ -47,20 +76,20 @@ const AddProduct = (props) => {
       alert('All fields must have details!')
     else{
       Alert.alert(
-        'Add Product',
-        'Your product has been sucessfully submitted and published!',
+        'Edit Product',
+        'Your product has been sucessfully updated!',
         [
           {
               text: "Cancel",
               style: "cancel",
           },
-          { text: "Ok", 
+          { text: "Go Back", 
             onPress: () => {
               props.navigation.goBack()
             } 
           },
-      ],
-      { cancelable: true }
+        ],
+        { cancelable: true }
       )
     }
   }
@@ -68,8 +97,8 @@ const AddProduct = (props) => {
     <ScrollView>
       <HeaderContianer>
         <View style={{flex: 1, alignContent:'center', alignItems: 'center', marginTop: 40, marginBottom: 'auto'}}>
-          <Text style={styles.incomeTitle}>Add Products</Text>
-          <Title style={styles.cardTitle}>Enter details of product to publish</Title>
+          <Text style={styles.incomeTitle}>Edit Products</Text>
+          <Title style={styles.cardTitle}>Change details of your published product</Title>
         </View>
       </HeaderContianer>
 
@@ -217,4 +246,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default AddProduct
+export default EditProduct
