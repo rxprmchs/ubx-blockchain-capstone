@@ -14,7 +14,6 @@ import ChangePassword from '../../../screens/Settings/pages/ChangePassword/Chang
 
 import ManageProducts from '../../../screens/ManageProducts/ManageProducts'
 import ProductInfo from '../../../screens/ManageProducts/pages/ProductInfo/ProductInfo'
-import ChangeUsername3 from '../../../screens/ManageProducts/pages/ChangeUsername/ChangeUsername'
 import AddProduct from '../../../screens/ManageProducts/pages/AddProduct/AddProduct'
 import EditProduct from '../../../screens/ManageProducts/pages/EditProduct/EditProduct'
 
