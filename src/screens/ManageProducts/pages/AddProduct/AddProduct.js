@@ -46,20 +46,17 @@ const AddProduct = (props) => {
     )
       alert('All fields must have details!')
     else{
+      props.route.params.addGoods()
       Alert.alert(
         'Add Product',
         'Your product has been sucessfully submitted and published!',
         [
-          {
-              text: "Cancel",
-              style: "cancel",
-          },
           { text: "Ok", 
             onPress: () => {
-              props.navigation.goBack()
+              props.navigation.navigate('Manage Products')
             } 
           },
-      ],
+        ],
       { cancelable: true }
       )
     }

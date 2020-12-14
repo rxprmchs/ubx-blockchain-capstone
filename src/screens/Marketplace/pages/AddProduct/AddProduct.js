@@ -1,26 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, Alert, BackHandler } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View, Alert } from 'react-native';
 import { TextInput, Button, Text, Card, Title, Paragraph, Caption,  } from 'react-native-paper';
 import HeaderContianer from '../../../../shared/components/Container/HeaderContainer/HeaderContainer';
 import { ScrollView } from 'react-native-gesture-handler';
 
-const EditProduct = (props) => {
+const AddProduct = (props) => {
   const [currentPassword, setCurrentPassowrd] = useState('')
   const [newPassword, setNewPassowrd] = useState('')
   const [confirmPassowrd, setConfirmPassword] = useState('')
   const [currentPassErr, setCurrentPassErr] = useState(false)
   const [newPassErr, setNewPassErr] = useState(false)
   const [confirmPassErr, setConfirmPassErr] = useState(false)
-  
-  const [item, setitem] = useState(props.route.params.item)
-  const [goodsName, setgoodsName] = useState(props.route.params.item.goodsName)
-  const [quantityType, setquantityType] = useState(props.route.params.item.quantityType)
-  const [quantityValue, setquantityValue] = useState(props.route.params.item.quantityValue)
-  const [amountPerUnit, setamountPerUnit] = useState(props.route.params.item.amountPerUnit)
-  const [amount, setamount] = useState(props.route.params.item.amount)
-  const [additionalDesc, setadditionalDesc] = useState(props.route.params.item.additionalDesc)
-  const [plantationDate, setplantationDate] = useState(props.route.params.item.plantationDate)
-  const [harvestDate, setharvestDate] = useState(props.route.params.item.harvestDate)
+
+  const [goodsName, setgoodsName] = useState('')
+  const [quantityType, setquantityType] = useState('')
+  const [quantityValue, setquantityValue] = useState('')
+  const [amountPerUnit, setamountPerUnit] = useState('')
+  const [amount, setamount] = useState('')
+  const [additionalDesc, setadditionalDesc] = useState('')
+  const [plantationDate, setplantationDate] = useState('')
+  const [harvestDate, setharvestDate] = useState('')
   const [product, setproduct] = useState('')
 
   let sdafdsfg = {
@@ -33,34 +32,6 @@ const EditProduct = (props) => {
     plantationDate : '2008-01-01 00:00:01',
     harvestDate : '2008-01-01 00:00:01',
   }
-
-  useEffect(() => {
-    
-    const backAction = () => {
-      Alert.alert(
-        'Edit Product',
-        'Discard changes?',
-        [
-          {
-              text: "Cancel",
-              style: "cancel",
-          },
-          { text: "Discard", 
-            onPress: () => {
-              props.navigation.navigate('Manage Products')
-            } 
-          },
-        ],
-        { cancelable: true }
-      )
-        return true;
-    };
-    const backHandler = BackHandler.addEventListener(
-        "hardwareBackPress",
-        backAction
-        );
-        return () => backHandler.remove();
-    },[])
 
   const validateInputs = () => {
     if(
@@ -75,43 +46,27 @@ const EditProduct = (props) => {
     )
       alert('All fields must have details!')
     else{
-      let body = {
-        goodsName: goodsName,
-        quantityType : quantityType,
-        quantityValue : quantityValue,
-        amountPerUnit : amountPerUnit,
-        amount : amount,
-        additionalDesc : additionalDesc,
-        plantationDate : plantationDate,
-        harvestDate : harvestDate,
-      }
-      props.route.params.editGoods(body, props.route.params.index)
-
+      props.route.params.addGoods()
       Alert.alert(
-        'Edit Product',
-        'Your product has been sucessfully updated!',
+        'Add Product',
+        'Your product has been sucessfully submitted and published!',
         [
-          { text: "Go Back", 
+          { text: "Ok", 
             onPress: () => {
-              
               props.navigation.navigate('Manage Products')
             } 
           },
         ],
-        { cancelable: true }
+      { cancelable: true }
       )
     }
   }
   return (
     <ScrollView>
       <HeaderContianer>
-        <View style={styles.headerContainer}>
-          <View style={{flexDirection: 'row'}}>
-            <Text style={styles.incomeTitle}>Edit Product</Text>
-          </View>
-          <View>
-            <Text style={styles.incomeSubTitle}>Update your product details</Text>
-          </View>
+        <View style={{flex: 1, alignContent:'center', alignItems: 'center', marginTop: 40, marginBottom: 'auto'}}>
+          <Text style={styles.incomeTitle}>Add Products</Text>
+          <Title style={styles.cardTitle}>Enter details of product to publish</Title>
         </View>
       </HeaderContianer>
 
@@ -245,20 +200,10 @@ const styles = StyleSheet.create({
     fontSize: 18, 
     color: '#FFF',
   },
-  headerContainer:{
-    alignItems: 'center',
-    height: '100%', 
-    justifyContent: 'center'
-  },
   incomeTitle:{
     fontSize: 30,
     color: '#fff', 
     fontFamily: 'Lato-Bold'
-  },
-  incomeSubTitle:{
-    color: '#fff',
-    fontFamily: 'Lato-Regular',
-    letterSpacing: 3
   },
   cardTitle:{
     color: '#999', 
@@ -269,4 +214,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default EditProduct
+export default AddProduct

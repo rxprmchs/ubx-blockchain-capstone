@@ -78,7 +78,7 @@ const goodsss = [
   },
 ]
 
-const ManageProducts = props => {
+const Marketplace = props => {
   // console.log(goodsss)
   const [goods, setGoods] = useState([
     {
@@ -215,30 +215,18 @@ const ManageProducts = props => {
       style={{...styles.container}}
     >
       <HeaderContianer>
-        <View style={styles.headerContainer}>
-          <View style={{flexDirection: 'row'}}>
-            <Text style={styles.incomeTitle}>Manage Product</Text>
-          </View>
-          <View>
-            <Text style={styles.incomeSubTitle}>Your Product Listing</Text>
-          </View>
+        <View style={{flex: 1, alignContent:'center', alignItems: 'center', marginTop: 40, marginBottom: 'auto'}}>
+          <Text style={styles.incomeTitle}>Marketplace</Text>
+          <Title style={styles.cardTitle}>Available goods from all farmers </Title>
         </View>
       </HeaderContianer>
 
       <ScrollView
         style={{borderBottomWidth: StyleSheet.hairlineWidth}}
       >
-        {listGoods()}
+        {/* {listGoods()} */}
       </ScrollView>
 
-      <Button 
-        icon="plus" 
-        mode="contained" 
-        style={{...styles.btn}}
-        onPress={() => props.navigation.navigate('Add Product',{addGoods: addProduct})}
-      >
-        ADD A PRODUCT
-      </Button>
     </View>
   )
 }
@@ -248,21 +236,13 @@ const styles = StyleSheet.create({
     display: 'flex',
     flex: 1,
     backgroundColor: '#fff',
-  },
-  headerContainer:{
-    alignItems: 'center',
-    height: '100%', 
-    justifyContent: 'center'
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
   incomeTitle:{
     fontSize: 30,
     color: '#fff', 
     fontFamily: 'Lato-Bold'
-  },
-  incomeSubTitle:{
-    color: '#fff',
-    fontFamily: 'Lato-Regular',
-    letterSpacing: 3
   },
   btn: {
     marginVertical: 20,
@@ -281,4 +261,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default ManageProducts
+export default Marketplace
