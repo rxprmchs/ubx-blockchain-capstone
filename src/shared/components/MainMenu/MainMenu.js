@@ -17,6 +17,8 @@ import ProductInfo from '../../../screens/ManageProducts/pages/ProductInfo/Produ
 import AddProduct from '../../../screens/ManageProducts/pages/AddProduct/AddProduct'
 import EditProduct from '../../../screens/ManageProducts/pages/EditProduct/EditProduct'
 
+import Marketplace from "../../../screens/Marketplace/Marketplace";
+
 const Stack = createStackNavigator()
 const Tab = createMaterialBottomTabNavigator();
 
@@ -50,10 +52,23 @@ const MainMenu = props => {
     return(
       <>
       <Stack.Navigator initialRouteName="Manage" headerMode="none">
-        <Stack.Screen name="Manage Products" component={ManageProducts} options={{ title: "Settings" }}/>
+        <Stack.Screen name="Manage Products" component={ManageProducts} options={{ title: "Manage Products" }}/>
         <Stack.Screen name="Product Info" component={ProductInfo} options={{ title: "Product Info" }}/>
         <Stack.Screen name="Add Product" component={AddProduct} options={{ title: "Add Product" }}/>
         <Stack.Screen name="Edit Product" component={EditProduct} options={{ title: "Edit Product" }}/>
+      </Stack.Navigator>
+    </>
+    )
+  }
+
+  const MarketplaceComponents = () => {
+    return(
+      <>
+      <Stack.Navigator initialRouteName="Marketplace" headerMode="none">
+        <Stack.Screen name="Marketplace" component={Marketplace} options={{ title: "Marketplace" }}/>
+        {/* <Stack.Screen name="Product Info" component={ProductInfo} options={{ title: "Product Info" }}/>
+        <Stack.Screen name="Add Product" component={AddProduct} options={{ title: "Add Product" }}/>
+        <Stack.Screen name="Edit Product" component={EditProduct} options={{ title: "Edit Product" }}/> */}
       </Stack.Navigator>
     </>
     )
@@ -86,6 +101,16 @@ return (
         tabBarLabel: 'Manage',
         tabBarIcon: ({ color }) => (
           <MaterialCommunityIcons name="treasure-chest" color={color} size={26} />
+        ),
+      }}
+    />
+    <Tab.Screen 
+      name="Marketplace" 
+      children={Marketplace} 
+      options={{
+        tabBarLabel: 'Marketplace',
+        tabBarIcon: ({ color }) => (
+          <MaterialCommunityIcons name="bank" color={color} size={26} />
         ),
       }}
     />
