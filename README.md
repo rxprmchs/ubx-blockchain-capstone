@@ -45,11 +45,7 @@ yarn
 
 ### Usage
 
-#### Run the app
-```
-npm install
-```
-then
+#### Starting the app
 ```
 npm start
 ```
@@ -61,6 +57,20 @@ or
 ```
 expo start
 ```
+
+#### Running the app
+```
+Download expo client in App/Play store
+```
+then
+```
+Scan the Qr Code
+```
+or
+```
+Run on Android Simulator/Emulator
+```
+
 #### Develop the app for iOS
 
 ```
