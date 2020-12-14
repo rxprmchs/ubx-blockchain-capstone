@@ -14,7 +14,6 @@ import ChangePassword from '../../../screens/Settings/pages/ChangePassword/Chang
 
 import ManageProducts from '../../../screens/ManageProducts/ManageProducts'
 import ProductInfo from '../../../screens/ManageProducts/pages/ProductInfo/ProductInfo'
-import ChangeUsername3 from '../../../screens/ManageProducts/pages/ChangeUsername/ChangeUsername'
 import AddProduct from '../../../screens/ManageProducts/pages/AddProduct/AddProduct'
 import EditProduct from '../../../screens/ManageProducts/pages/EditProduct/EditProduct'
 
@@ -53,7 +52,6 @@ const MainMenu = props => {
       <Stack.Navigator initialRouteName="Manage" headerMode="none">
         <Stack.Screen name="Manage Products" component={ManageProducts} options={{ title: "Settings" }}/>
         <Stack.Screen name="Product Info" component={ProductInfo} options={{ title: "Product Info" }}/>
-        <Stack.Screen name="Change Username" component={ChangeUsername3} options={{ title: "Change Username" }}/>
         <Stack.Screen name="Add Product" component={AddProduct} options={{ title: "Add Product" }}/>
         <Stack.Screen name="Edit Product" component={EditProduct} options={{ title: "Edit Product" }}/>
       </Stack.Navigator>

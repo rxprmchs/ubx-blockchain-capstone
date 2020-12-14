@@ -47,7 +47,7 @@ const EditProduct = (props) => {
           },
           { text: "Discard", 
             onPress: () => {
-              props.navigation.goBack()
+              props.navigation.navigate('Manage Products')
             } 
           },
         ],
@@ -75,17 +75,26 @@ const EditProduct = (props) => {
     )
       alert('All fields must have details!')
     else{
+      let body = {
+        goodsName: goodsName,
+        quantityType : quantityType,
+        quantityValue : quantityValue,
+        amountPerUnit : amountPerUnit,
+        amount : amount,
+        additionalDesc : additionalDesc,
+        plantationDate : plantationDate,
+        harvestDate : harvestDate,
+      }
+      props.route.params.editGoods(body, props.route.params.index)
+
       Alert.alert(
         'Edit Product',
         'Your product has been sucessfully updated!',
         [
-          {
-              text: "Cancel",
-              style: "cancel",
-          },
           { text: "Go Back", 
             onPress: () => {
-              props.navigation.goBack()
+              
+              props.navigation.navigate('Manage Products')
             } 
           },
         ],

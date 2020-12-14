@@ -31,7 +31,6 @@ const ProductInfo = (props) => {
     props.route.params
   }
 
-  console.log(props.route.params)
   return (
     <View
       style={{...styles.container}}
@@ -74,7 +73,7 @@ const ProductInfo = (props) => {
           icon="plus" 
           mode="contained" 
           style={{...styles.btn}}
-          onPress={() => props.navigation.navigate('Edit Product', {item: props.route.params.item})}
+          onPress={() => props.navigation.navigate('Edit Product', {item: props.route.params.item, index: props.route.params.index, editGoods: props.route.params.editGoods})}
         >
           EDIT PRODUCT
         </Button>
