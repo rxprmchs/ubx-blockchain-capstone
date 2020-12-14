@@ -1,11 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { StyleSheet, View, ScrollView } from 'react-native'
 import { Card, Title, Paragraph, Button, Text, Caption } from 'react-native-paper';
 
 import HeaderContianer from '../../shared/components/Container/HeaderContainer/HeaderContainer';
 import CardItem from './components/CardItems';
 
-const goods = [
+const goodsss = [
   {
     goodsId: 0,
     farmerId: 0,
@@ -79,22 +79,33 @@ const goods = [
 ]
 
 const ManageProducts = props => {
+  // console.log(goodsss)
+  const [goods, setGoods] = useState(goodsss)
+
+  const deleteProduct = (index) =>{
+    let temp = goods;
+    // console.log('====before splice====')
+    // console.log(temp)
+    temp.splice(index,1)
+    // console.log('====after splice====')
+    // console.log(temp)
+    setGoods([...temp])
+  }
 
   const listGoods = () => {
     return goods.map((item, i) => {
-      // console.log(item)
+      console.log(item)
       return(
-        <CardItem 
+        <CardItem
           key={i}
           item={item}
           title="Product A" 
           caption="Update your basic information that will be seen by merchants"
-          onPress={() => props.navigation.navigate('Product Info', {item: item})}
+          onPress={() => props.navigation.navigate('Product Info', {item: item, deleteGoods: deleteProduct})}
         />
       )
     })
   }
-
 
   return(
     <View
