@@ -9,7 +9,16 @@ const ChangeUsername = () => {
 
   return (
     <View>
-      <HeaderContianer/>
+      <HeaderContianer>
+        <View style={styles.headerContainer}>
+            <View style={{flexDirection: 'row'}}>
+            <Text style={styles.incomeTitle}>Change Username</Text>
+          </View>
+          <View>
+            <Text style={styles.incomeSubTitle}>Update your username</Text>
+          </View>
+        </View>
+      </HeaderContianer>
       <TextInput
         label="Change Username"
         mode="flat"
@@ -32,6 +41,21 @@ const ChangeUsername = () => {
 };
 
 const styles = StyleSheet.create({
+  headerContainer:{
+    alignItems: 'center',
+    height: '100%', 
+    justifyContent: 'center'
+  },
+  incomeTitle:{
+    fontSize: 30,
+    color: '#fff', 
+    fontFamily: 'Lato-Bold'
+  },
+  incomeSubTitle:{
+    color: '#fff',
+    fontFamily: 'Lato-Regular',
+    letterSpacing: 3
+  },
   textInput: {
     marginTop: 20,
     marginBottom: 20,

@@ -112,9 +112,13 @@ const ManageProducts = props => {
       style={{...styles.container}}
     >
       <HeaderContianer>
-        <View style={{flex: 1, alignContent:'center', alignItems: 'center', marginTop: 40, marginBottom: 'auto'}}>
-          <Text style={styles.incomeTitle}>Your Products</Text>
-          <Title style={styles.cardTitle}>List of all your published goods</Title>
+        <View style={styles.headerContainer}>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={styles.incomeTitle}>Manage Product</Text>
+          </View>
+          <View>
+            <Text style={styles.incomeSubTitle}>Your Product Listing</Text>
+          </View>
         </View>
       </HeaderContianer>
 
@@ -141,13 +145,21 @@ const styles = StyleSheet.create({
     display: 'flex',
     flex: 1,
     backgroundColor: '#fff',
-    // alignItems: 'center',
-    // justifyContent: 'center',
+  },
+  headerContainer:{
+    alignItems: 'center',
+    height: '100%', 
+    justifyContent: 'center'
   },
   incomeTitle:{
     fontSize: 30,
     color: '#fff', 
     fontFamily: 'Lato-Bold'
+  },
+  incomeSubTitle:{
+    color: '#fff',
+    fontFamily: 'Lato-Regular',
+    letterSpacing: 3
   },
   btn: {
     marginVertical: 20,

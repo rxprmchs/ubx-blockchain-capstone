@@ -67,9 +67,13 @@ const AddProduct = (props) => {
   return (
     <ScrollView>
       <HeaderContianer>
-        <View style={{flex: 1, alignContent:'center', alignItems: 'center', marginTop: 40, marginBottom: 'auto'}}>
-          <Text style={styles.incomeTitle}>Add Products</Text>
-          <Title style={styles.cardTitle}>Enter details of product to publish</Title>
+        <View style={styles.headerContainer}>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={styles.incomeTitle}>Add Product</Text>
+          </View>
+          <View>
+            <Text style={styles.incomeSubTitle}>Enter New Product Listing</Text>
+          </View>
         </View>
       </HeaderContianer>
 
@@ -203,10 +207,20 @@ const styles = StyleSheet.create({
     fontSize: 18, 
     color: '#FFF',
   },
+  headerContainer:{
+    alignItems: 'center',
+    height: '100%', 
+    justifyContent: 'center'
+  },
   incomeTitle:{
     fontSize: 30,
     color: '#fff', 
     fontFamily: 'Lato-Bold'
+  },
+  incomeSubTitle:{
+    color: '#fff',
+    fontFamily: 'Lato-Regular',
+    letterSpacing: 3
   },
   cardTitle:{
     color: '#999', 

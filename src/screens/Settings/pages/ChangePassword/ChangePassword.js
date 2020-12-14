@@ -13,7 +13,16 @@ const ChangePassword = () => {
 
   return (
     <View>
-      <HeaderContianer/>
+      <HeaderContianer>
+        <View style={styles.headerContainer}>
+            <View style={{flexDirection: 'row'}}>
+            <Text style={styles.incomeTitle}>Change Password</Text>
+          </View>
+          <View>
+            <Text style={styles.incomeSubTitle}>Update your password</Text>
+          </View>
+        </View>
+      </HeaderContianer>
       <TextInput
         label="Current Password"
         mode="flat"
@@ -54,6 +63,21 @@ const ChangePassword = () => {
 };
 
 const styles = StyleSheet.create({
+  headerContainer:{
+    alignItems: 'center',
+    height: '100%', 
+    justifyContent: 'center'
+  },
+  incomeTitle:{
+    fontSize: 30,
+    color: '#fff', 
+    fontFamily: 'Lato-Bold'
+  },
+  incomeSubTitle:{
+    color: '#fff',
+    fontFamily: 'Lato-Regular',
+    letterSpacing: 3
+  },
   textInput: {
     marginTop: 20,
     marginBottom: 20,

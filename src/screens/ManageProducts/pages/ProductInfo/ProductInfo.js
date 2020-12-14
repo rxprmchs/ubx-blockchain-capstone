@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Alert } from 'react-native';
+import { StyleSheet, ScrollView, View, Alert } from 'react-native';
 import { TextInput, Button, Text, Card, Title, Caption  } from 'react-native-paper';
 import HeaderContianer from '../../../../shared/components/Container/HeaderContainer/HeaderContainer';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -33,17 +33,21 @@ const ProductInfo = (props) => {
 
   console.log(props.route.params)
   return (
-    <View
+    <ScrollView
       style={{...styles.container}}
     >
       <HeaderContianer>
-        <View style={{flex: 1, alignContent:'center', alignItems: 'center', marginTop: 40, marginBottom: 'auto'}}>
-          <Text style={styles.incomeTitle}>{goodsInfo.goodsName}</Text>
-          <Title style={styles.cardTitle}>Your Product</Title>
+      <View style={styles.headerContainer}>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={styles.incomeTitle}>{goodsInfo.goodsName}</Text>
+          </View>
+          <View>
+            <Text style={styles.incomeSubTitle}>Your Selected Product</Text>
+          </View>
         </View>
       </HeaderContianer>
 
-      <Card style={{margin: 10,}} onPress={()=>{}}>
+      <Card elevation={4} style={{margin: 10,}} onPress={()=>{}}>
         <Card.Content style={{flexDirection: 'column', justifyContent: 'space-between', borderLeftWidth: 2, borderLeftColor: '#6200EE',}}>
           <View>
             <Title style={styles.cardTitle}>Price: {goodsInfo.amount}</Title>
@@ -60,7 +64,7 @@ const ProductInfo = (props) => {
         </Card.Content>
       </Card>
       <View
-        style={{flexDirection: 'row'}}
+        style={{flexDirection: 'column', margin: 10}}
       >
         <Button 
           icon="plus" 
@@ -96,7 +100,7 @@ const ProductInfo = (props) => {
       >
         <Text style={styles.btnText}>Submit</Text>
       </Button> */}
-    </View>
+    </ScrollView>
   );
 };
 
@@ -118,7 +122,6 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
   },
   btn: {
-    marginTop: 20,
     marginBottom: 20,
     marginRight: 20,
     marginLeft: 20,
@@ -131,14 +134,25 @@ const styles = StyleSheet.create({
     fontSize: 18, 
     color: '#FFF'
   },
+  headerContainer:{
+    alignItems: 'center',
+    height: '100%', 
+    justifyContent: 'center'
+  },
   incomeTitle:{
     fontSize: 30,
     color: '#fff', 
     fontFamily: 'Lato-Bold'
   },
+  incomeSubTitle:{
+    color: '#fff',
+    fontFamily: 'Lato-Regular',
+    letterSpacing: 3
+  },
   cardTitle:{
     color: '#999', 
-    fontFamily: 'Lato-Bold'
+    fontFamily: 'Lato-Bold',
+    fontSize: 16
   },
   cardCaption:{
     fontFamily: 'Lato-Regular'

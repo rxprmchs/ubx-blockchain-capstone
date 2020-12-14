@@ -12,7 +12,7 @@ const TransactionHistory = (props) => {
         <DataTable.Cell>{formatDate(item.body.deliveryRecieveDate)}</DataTable.Cell>
         <DataTable.Cell >{item.body.deliveryDesc}</DataTable.Cell>
         <DataTable.Cell >{item.body.status}</DataTable.Cell>
-        <DataTable.Cell ><MaterialCommunityIcons name="chevron-right" color="#6200EE" size={30} /></DataTable.Cell>
+        <DataTable.Cell style={{ flex: .4, justifyContent: 'flex-end',}}><MaterialCommunityIcons name="chevron-right" color="#6200EE" size={30} /></DataTable.Cell>
       </DataTable.Row>
     )
   })
@@ -30,7 +30,7 @@ const TransactionHistory = (props) => {
             <DataTable.Title>Date</DataTable.Title>
             <DataTable.Title>Description</DataTable.Title>
             <DataTable.Title>Status</DataTable.Title>
-            <DataTable.Title></DataTable.Title>
+   
           </DataTable.Header>
           {TransactionHistoryComponent}
           <DataTable.Pagination

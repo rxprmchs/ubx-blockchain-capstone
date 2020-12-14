@@ -65,6 +65,7 @@ const Header = props => {
                   defaultRating={4.5}
                   size={12}
                   isDisabled
+                  
                 />
               </Title>
               <Caption style={styles.ratingCaption}>Your Rating</Caption>

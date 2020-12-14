@@ -96,9 +96,13 @@ const EditProduct = (props) => {
   return (
     <ScrollView>
       <HeaderContianer>
-        <View style={{flex: 1, alignContent:'center', alignItems: 'center', marginTop: 40, marginBottom: 'auto'}}>
-          <Text style={styles.incomeTitle}>Edit Products</Text>
-          <Title style={styles.cardTitle}>Change details of your published product</Title>
+        <View style={styles.headerContainer}>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={styles.incomeTitle}>Edit Product</Text>
+          </View>
+          <View>
+            <Text style={styles.incomeSubTitle}>Update your product details</Text>
+          </View>
         </View>
       </HeaderContianer>
 
@@ -232,10 +236,20 @@ const styles = StyleSheet.create({
     fontSize: 18, 
     color: '#FFF',
   },
+  headerContainer:{
+    alignItems: 'center',
+    height: '100%', 
+    justifyContent: 'center'
+  },
   incomeTitle:{
     fontSize: 30,
     color: '#fff', 
     fontFamily: 'Lato-Bold'
+  },
+  incomeSubTitle:{
+    color: '#fff',
+    fontFamily: 'Lato-Regular',
+    letterSpacing: 3
   },
   cardTitle:{
     color: '#999', 
