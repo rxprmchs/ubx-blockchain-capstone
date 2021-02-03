@@ -63,7 +63,7 @@ const Login = props => {
       <Surface style={styles.loginContainer}>
         <View style={styles.header}>
           <Avatar.Icon size={40} icon="flower" />
-          <Title style={styles.textTitle}>AgriQultura</Title>
+          <Title style={styles.textTitle}>Qork</Title>
         </View>
         <TextInput
           label="Username"
