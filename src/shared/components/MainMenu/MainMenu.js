@@ -57,7 +57,7 @@ return (
     initialRouteName="Home" 
     backBehavior="none"
     inactiveColor="#BCBCBC"
-    activeColor="#fff"
+    activeColor="#DE933D"
     shifting
     barStyle={{backgroundColor: '#434343'}}
   >
