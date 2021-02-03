@@ -91,7 +91,7 @@ const Login = props => {
         >
           <Text style={styles.btnText}>Login</Text>
         </Button>
-        <Text onPress={showModal} style={styles.textNoAccount}>Don't have an account?</Text>
+        {/* <Text onPress={showModal} style={styles.textNoAccount}>Don't have an account?</Text>
         <Portal>
           <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={styles.modal}>
             <View style={{flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center'}}>
@@ -118,7 +118,7 @@ const Login = props => {
               </Button>
             </View>
           </Modal>
-        </Portal>
+        </Portal> */}
       </Surface>
     </BgLeaf>
   )

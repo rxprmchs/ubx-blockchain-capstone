@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import { StyleSheet, ScrollView, View } from 'react-native'
-import { Button, Paragraph, Dialog, Portal, Text } from 'react-native-paper';
+import { StyleSheet, ScrollView, View, Platform, TouchableOpacity } from 'react-native'
+import { Appbar, Surface, Text } from 'react-native-paper';
 
-import HeaderContianer from '../../shared/components/Container/HeaderContainer/HeaderContainer';
 import CardItem from './components/CardItems';
 
 const Settings = props => {
@@ -15,52 +14,44 @@ const Settings = props => {
     setVisible(false)
     props.navigation.navigate('Authentication')
   }
+  const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
 
   return(
     <ScrollView>
-      <HeaderContianer>
-        <Text style={{marginTop: 40, fontFamily: 'Lato-Bold', color: '#fff', fontSize: 30}}>Account Settings</Text>
-        <View style={{transform: [{translateY: 80}], position: 'absolute'}}>
-          <CardItem 
-            title="Update your information" 
-            caption="Update your basic information that will be seen by merchants"
-            onPress={() => props.navigation.navigate('Change Information')}
-          />
-        </View>
-      </HeaderContianer>
-      <View style={{marginTop: 60}}>
-      <CardItem 
-        title="Change Username" 
-        caption="Change your username"
-        onPress={() => props.navigation.navigate('Change Username')}
-      />
-      <CardItem 
-        title="Change Password" 
-        caption="Change your password frequently for safety purposes"
-        onPress={() => props.navigation.navigate('Change Password')}
-      />
-      <CardItem 
-        title="Logout" 
-        caption="Logout to your account"
-        onPress={() => showDialog()}
-      />
+      <Appbar.Header backgroundColor="red">
+       <Appbar.Content color="#fff" title="Adjust Temperature" />
+        <Appbar.Action icon="magnify" onPress={() => {}} />
+        <Appbar.Action icon={MORE_ICON} onPress={() => {}} />
+      </Appbar.Header>
+      <View style={{height: 300, width: '100%', backgroundColor: '#FBFBFB', flexDirection: 'column', alignItems: 'center'}}>
+        <Text style={{color: '#C92459', fontSize: 18, paddingTop: 20, fontWeight: 'bold',}}>Current Temperature</Text>
+        <Text style={{color: '#DE933D', fontSize: 100, fontWeight: 'bold',  padding: 10}}>12°c</Text>
+        <TouchableOpacity delayPressIn={0} style={styles.btnPrimary} onPress={()=>props.onPress()}>
+          <Text style={styles.btnTxt}>CHANGE TEMPERATURE</Text>
+        </TouchableOpacity> 
       </View>
-      <Portal>
-        <Dialog visible={visible} onDismiss={hideDialog}>
-          <Dialog.Title style={{fontFamily: 'Lato-Bold', color: '#6200EE'}}>Logout</Dialog.Title>
-          <Dialog.Content>
-            <Paragraph style={{fontFamily: 'Lato-Regular'}}>Are you sure you want to logout?</Paragraph>
-          </Dialog.Content>
-          <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
-          <Dialog.Actions>
-            <Button style={{fontFamily: 'Lato-Bold'}} onPress={hideDialog}>Cancel</Button>
-          </Dialog.Actions>
-          <Dialog.Actions>
-            <Button style={{fontFamily: 'Lato-Bold'}} onPress={() => logoutHandler()}>Yes</Button>
-          </Dialog.Actions>
-          </View>
-        </Dialog>
-      </Portal>
+      <Surface style={{height: '100%', flex: 1}}>
+        <Text style={{color: '#C92459', fontWeight: 'bold', fontSize: 18, paddingLeft: 20, paddingTop: 10}}>Logs</Text>
+        <View style={{ borderBottomWidth: 3, borderBottomColor: '#C92459', width: 40,  marginLeft: 20, marginBottom: 10}}></View>
+        <CardItem 
+          title="Temperature was changed" 
+          date="3 day(s) ago"
+          changes="From: 16c - To: 11c"
+          onPress={() => console.log('Clicked!')}
+        />
+       <CardItem 
+          title="Temperature was changed" 
+          date="3 day(s) ago"
+          changes="From: 16c - To: 11c"
+          onPress={() => console.log('Clicked!')}
+        />
+        <CardItem 
+          title="Temperature was changed" 
+          date="3 day(s) ago"
+          changes="From: 16c - To: 11c"
+          onPress={() => console.log('Clicked!')}
+        />
+      </Surface>
     </ScrollView>
   )
 }
@@ -72,6 +63,25 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  btnPrimary: {
+    flexDirection: 'row',
+    backgroundColor: "#C92459",
+    justifyContent: "center",
+    alignItems: 'center',
+    width: 295,
+    height: 48,
+    borderRadius: 25,
+    marginTop: 20,
+    elevation: 2,
+  },
+  btnTxt : {
+    color: '#FFF',
+    letterSpacing: 3.15,
+    textAlign: 'center',
+    fontWeight : "bold",
+    fontFamily: 'Roboto',
+    fontSize: 16,
   },
 });
 

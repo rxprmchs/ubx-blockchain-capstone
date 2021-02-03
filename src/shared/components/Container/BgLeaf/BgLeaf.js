@@ -1,20 +1,18 @@
 import React from 'react'
-import { ImageBackground, StyleSheet } from 'react-native'
-
-import Leaf from '../../../../../assets/images/leaf2.png'
+import { View, StyleSheet } from 'react-native'
 
 const BgLeaf = props => {
   return(
-    <ImageBackground source={Leaf} style={styles.mainContainer} imageStyle={{resizeMode: 'repeat', width: '100%'}}>
+    <View style={styles.mainContainer}>
       {props.children}
-    </ImageBackground>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: '#6200ee',
+    backgroundColor: '#FFF',
     justifyContent: 'center',
     height: '100%',
     width: '100%'

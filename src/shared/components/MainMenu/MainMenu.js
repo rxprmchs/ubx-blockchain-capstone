@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import { View } from 'react-native';
-import { Button, Paragraph, Dialog, Portal } from 'react-native-paper';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { createStackNavigator } from "@react-navigation/stack";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -8,9 +6,6 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Home from '../../../screens/Home/Home'
 import TransactionDetails from '../../../screens/Home/components/TransactionHistory/components/TransactionDetails'
 import Settings from '../../../screens/Settings/Settings'
-import ChangeInformation from '../../../screens/Settings/pages/ChangeInformation/ChangeInformation'
-import ChangeUsername from '../../../screens/Settings/pages/ChangeUsername/ChangeUsername'
-import ChangePassword from '../../../screens/Settings/pages/ChangePassword/ChangePassword'
 
 import ManageProducts from '../../../screens/ManageProducts/ManageProducts'
 import ProductInfo from '../../../screens/ManageProducts/pages/ProductInfo/ProductInfo'
@@ -39,9 +34,6 @@ const MainMenu = props => {
       <>
       <Stack.Navigator initialRouteName="Settings" headerMode="none">
         <Stack.Screen name="Settings" component={Settings} options={{ title: "Settings" }}/>
-        <Stack.Screen name="Change Information" component={ChangeInformation} options={{ title: "Change Information" }}/>
-        <Stack.Screen name="Change Username" component={ChangeUsername} options={{ title: "Change Username" }}/>
-        <Stack.Screen name="Change Password" component={ChangePassword} options={{ title: "Change Password" }}/>
       </Stack.Navigator>
     </>
     )
@@ -70,6 +62,16 @@ return (
     barStyle={{backgroundColor: '#6200ee'}}
   >
     <Tab.Screen 
+      name="Manage" 
+      children={ManageComponents} 
+      options={{
+        tabBarLabel: 'Manage',
+        tabBarIcon: ({ color }) => (
+          <MaterialCommunityIcons name="treasure-chest" color={color} size={26} />
+          ),
+        }}
+    />
+    <Tab.Screen 
       name="Home" 
       children={HomeComponents} 
       options={{
@@ -80,20 +82,10 @@ return (
       }}
     />
     <Tab.Screen 
-      name="Manage" 
-      children={ManageComponents} 
-      options={{
-        tabBarLabel: 'Manage',
-        tabBarIcon: ({ color }) => (
-          <MaterialCommunityIcons name="treasure-chest" color={color} size={26} />
-        ),
-      }}
-    />
-    <Tab.Screen 
       name="Settings" 
       children={SettingsComponents} 
       options={{
-        tabBarLabel: 'Settings',
+        tabBarLabel: 'Change',
         tabBarIcon: ({ color }) => (
           <MaterialCommunityIcons name="settings" color={color} size={26} />
         ),

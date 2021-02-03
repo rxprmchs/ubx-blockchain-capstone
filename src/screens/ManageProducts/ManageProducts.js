@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { StyleSheet, View, ScrollView } from 'react-native'
-import { Card, Title, Paragraph, Button, Text, Caption } from 'react-native-paper';
+import { Card, Title, Paragraph, Button, Text, Caption, Appbar } from 'react-native-paper';
 
 import HeaderContianer from '../../shared/components/Container/HeaderContainer/HeaderContainer';
 import CardItem from './components/CardItems';
@@ -106,21 +106,17 @@ const ManageProducts = props => {
       )
     })
   }
+  const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
 
   return(
     <View
       style={{...styles.container}}
     >
-      <HeaderContianer>
-        <View style={styles.headerContainer}>
-          <View style={{flexDirection: 'row'}}>
-            <Text style={styles.incomeTitle}>Manage Product</Text>
-          </View>
-          <View>
-            <Text style={styles.incomeSubTitle}>Your Product Listing</Text>
-          </View>
-        </View>
-      </HeaderContianer>
+      <Appbar.Header backgroundColor="red">
+       <Appbar.Content color="#fff" title="Wine List" />
+        <Appbar.Action icon="magnify" onPress={() => {}} />
+        <Appbar.Action icon={MORE_ICON} onPress={() => {}} />
+      </Appbar.Header>
 
       <ScrollView
         style={{borderBottomWidth: StyleSheet.hairlineWidth}}
