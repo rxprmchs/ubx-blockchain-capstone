@@ -1,21 +1,39 @@
 import React, { useState } from 'react'
-import { StyleSheet, ScrollView, View, Platform, TouchableOpacity } from 'react-native'
+import { 
+  StyleSheet, 
+  ScrollView, 
+  View, 
+  Platform, 
+  TouchableOpacity,
+  Modal } from 'react-native'
 import { Appbar, Surface, Text } from 'react-native-paper';
 
 import CardItem from './components/CardItems';
+import ModalUpdate from './components/Modal';
 
 const Settings = props => {
-  const [visible, setVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false)
+  const [tempChanged, setTempChanged] = useState(false)
 
-  const showDialog = () => setVisible(true);
-  const hideDialog = () => setVisible(false);
-
-  const logoutHandler = () => {
-    setVisible(false)
-    props.navigation.navigate('Authentication')
+  const changeTempHandler = () => {
+    setModalVisible(true)
+    setTempChanged(false)
   }
-  const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
+  
+  const saveTempHandler = () => {
+    setTempChanged(true)
+  }
 
+  const closeModalHandler = () => {
+    setModalVisible(false)
+  }
+
+  const successModalHanlder = () => {
+    setModalVisible(false)
+    setTempChanged(false)
+  }
+
+  const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
   return(
     <ScrollView>
       <Appbar.Header backgroundColor="red">
@@ -26,11 +44,11 @@ const Settings = props => {
       <View style={{height: 300, width: '100%', backgroundColor: '#FBFBFB', flexDirection: 'column', alignItems: 'center'}}>
         <Text style={{color: '#C92459', fontSize: 18, paddingTop: 20, fontWeight: 'bold',}}>Current Temperature</Text>
         <Text style={{color: '#DE933D', fontSize: 100, fontWeight: 'bold',  padding: 10}}>12°c</Text>
-        <TouchableOpacity delayPressIn={0} style={styles.btnPrimary} onPress={()=>props.onPress()}>
+        <TouchableOpacity delayPressIn={0} style={styles.btnPrimary} onPress={changeTempHandler}>
           <Text style={styles.btnTxt}>CHANGE TEMPERATURE</Text>
         </TouchableOpacity> 
       </View>
-      <Surface style={{height: '100%', flex: 1}}>
+      <Surface style={{minHeight: 380, flex: 1}}>
         <Text style={{color: '#C92459', fontWeight: 'bold', fontSize: 18, paddingLeft: 20, paddingTop: 10}}>Logs</Text>
         <View style={{ borderBottomWidth: 3, borderBottomColor: '#C92459', width: 40,  marginLeft: 20, marginBottom: 10}}></View>
         <CardItem 
@@ -40,18 +58,21 @@ const Settings = props => {
           onPress={() => console.log('Clicked!')}
         />
        <CardItem 
-          title="Temperature was changed" 
+          title="Threshhold exceeded" 
           date="3 day(s) ago"
-          changes="From: 16c - To: 11c"
-          onPress={() => console.log('Clicked!')}
-        />
-        <CardItem 
-          title="Temperature was changed" 
-          date="3 day(s) ago"
-          changes="From: 16c - To: 11c"
+          changes="From: 12c - To: 16c"
           onPress={() => console.log('Clicked!')}
         />
       </Surface>
+      <ModalUpdate
+        modalVisible={modalVisible} 
+        cancel={closeModalHandler} 
+        save={saveTempHandler}
+        tempChanged={tempChanged} 
+        proceed={successModalHanlder}
+        successText='Temperature Changed'
+        backText='BACK TO WINE INFO'
+      />
     </ScrollView>
   )
 }
