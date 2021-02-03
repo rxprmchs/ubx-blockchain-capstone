@@ -56,10 +56,10 @@ return (
   <Tab.Navigator 
     initialRouteName="Home" 
     backBehavior="none"
-    inactiveColor="#7D80DA"
+    inactiveColor="#BCBCBC"
     activeColor="#fff"
     shifting
-    barStyle={{backgroundColor: '#6200ee'}}
+    barStyle={{backgroundColor: '#434343'}}
   >
     <Tab.Screen 
       name="Manage" 
