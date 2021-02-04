@@ -15,6 +15,7 @@ const  SelectDestination = props =>{
         style={{width: '100%',}}
         source={require('../../../../../assets/images/Rectangle200.png')}
       />
+      <MaterialCommunityIcons style={{alignSelf: 'center', top: 0, position: 'absolute', marginTop: 130}} color="#C92459" name='map-marker' size={25}/>
       <Surface style={styles.contentContainer}>
         <Text style={styles.title}>Select a destination</Text>
         <View style={{ borderBottomWidth: 3, borderBottomColor: '#C92459', width: 163, marginBottom: 10}}></View>

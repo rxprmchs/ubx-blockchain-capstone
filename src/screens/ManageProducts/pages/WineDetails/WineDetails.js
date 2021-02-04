@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { StyleSheet, View, Text, ScrollView, Image, TouchableOpacity} from 'react-native'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { FAB, Avatar } from 'react-native-paper';
 
 import QorkPatternContainer from '../../../../shared/components/Container/QorkPattern/QorkPattern'
@@ -48,7 +49,7 @@ const WineDetails = props => {
           <View>
             <TouchableOpacity onPress={openModalHandler}>
               <Text style={{color: '#DE933D', fontSize: 18,}}>more info</Text>
-              <View style={{ borderBottomWidth: 2, borderBottomColor: '#DE933D', width: 80}}></View>
+              <View style={{ borderBottomWidth: 2, borderBottomColor: '#DE933D', width: 78}}></View>
             </TouchableOpacity>
           </View>
         </View>
@@ -64,6 +65,7 @@ const WineDetails = props => {
           />
         </View>
       </View>
+      <MaterialCommunityIcons style={{alignSelf: 'center', position: 'absolute', bottom: 0, marginBottom: 220}} color="#DE933D" name='map-marker' size={50}/>
       <FAB
         style={styles.fab}
         small

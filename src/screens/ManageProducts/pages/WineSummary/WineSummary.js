@@ -50,7 +50,7 @@ const WineSummary = props => {
           <View>
             <TouchableOpacity onPress={openModalHandler}>
               <Text style={{color: '#DE933D', fontSize: 18,}}>more info</Text>
-              <View style={{ borderBottomWidth: 2, borderBottomColor: '#DE933D', width: 80}}></View>
+              <View style={{ borderBottomWidth: 2, borderBottomColor: '#DE933D', width: 78}}></View>
             </TouchableOpacity>
           </View>
         </View>
