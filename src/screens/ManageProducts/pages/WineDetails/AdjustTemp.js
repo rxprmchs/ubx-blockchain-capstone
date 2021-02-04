@@ -8,10 +8,10 @@ import {
   Modal } from 'react-native'
 import { Appbar, Surface, Text } from 'react-native-paper';
 
-import CardItem from './components/CardItems';
-import ModalUpdate from './components/Modal';
+import CardItem from './components/CardItem'
+import ModalUpdate from './components/ChangeTempModal'
 
-const Settings = props => {
+const AdjustTemp = props => {
   const [modalVisible, setModalVisible] = useState(false)
   const [tempChanged, setTempChanged] = useState(false)
 
@@ -31,15 +31,15 @@ const Settings = props => {
   const successModalHanlder = () => {
     setModalVisible(false)
     setTempChanged(false)
+    props.navigation.navigate('Wine Details')
   }
 
   const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
   return(
     <ScrollView>
-      <Appbar.Header backgroundColor="red">
-       <Appbar.Content color="#fff" title="Adjust Temperature" />
-        <Appbar.Action icon="magnify" onPress={() => {}} />
-        <Appbar.Action icon={MORE_ICON} onPress={() => {}} />
+      <Appbar.Header style={{backgroundColor: '#FFF'}} backgroundColor="white">
+        <Appbar.Action icon="arrow-left" size={20} onPress={() => props.navigation.navigate('Wine Details')} />
+        <Appbar.Content color="#C92459" title="Adjust Temperature" />
       </Appbar.Header>
       <View style={{height: 300, width: '100%', backgroundColor: '#FBFBFB', flexDirection: 'column', alignItems: 'center'}}>
         <Text style={{color: '#C92459', fontSize: 18, paddingTop: 20, fontWeight: 'bold',}}>Current Temperature</Text>
@@ -107,4 +107,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default Settings
+export default AdjustTemp

@@ -1,16 +1,31 @@
-import React from 'react'
-import { StyleSheet, View, Text, ScrollView, Image} from 'react-native'
-import { FAB } from 'react-native-paper';
+import React, {useState, useEffect} from 'react'
+import { StyleSheet, View, Text, ScrollView, Image, TouchableOpacity} from 'react-native'
+import { FAB, Avatar } from 'react-native-paper';
 
-import QorkPatternContainer from '../../shared/components/Container/QorkPattern/QorkPattern'
-import Wine  from '../../../assets/images/MaskGroup2.svg'
-import SmallWine  from '../../../assets/images/Group9.svg'
-import Group  from '../../../assets/images/Group1833.svg'
+import QorkPatternContainer from '../../../../shared/components/Container/QorkPattern/QorkPattern'
+import Wine from '../../../../../assets/images/MaskGroup2.svg'
+import SmallWine  from '../../../../../assets/images/Group9.svg'
+import Group  from '../../../../../assets/images/Group1833.svg'
+import MoreInfoModal from './components/MoreInfoModal'
+import Map from '../../../../../assets/images/Rectangle200.png'
 
-const Home = props => {
+const WineDetails = props => {
+  const [modalVisible, setModalVisible] = useState(false)
+
+  const openModalHandler = () => {
+    setModalVisible(true)
+  }
+  
+  const closeModalHandler = () => {
+    setModalVisible(false)
+  }
+
   return(
     <ScrollView>
-     <QorkPatternContainer>
+      <QorkPatternContainer>
+      <TouchableOpacity onPress={()=> props.navigation.navigate('Manage Products')} style={{position: 'absolute', top: 0, marginLeft: 16, marginTop: 30}}>
+        <Avatar.Icon size={30} style={{backgroundColor: '#fff', borderColor: '#000'}}  icon="arrow-left" color="#BCBCBC"/>
+      </TouchableOpacity>
         <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width: '100%', paddingLeft: 20}}>
           <View>
             <Wine/>
@@ -31,27 +46,33 @@ const Home = props => {
         <View style={{width: 120, alignItems: 'center', justifyContent: 'space-between', height: 100}}>
           <Text style={{color: '#DE933D', fontSize: 35, fontWeight: 'bold'}}>12.2 c</Text>
           <View>
-            <Text style={{color: '#DE933D', fontSize: 18,}}>more info</Text>
-            <View style={{ borderBottomWidth: 2, borderBottomColor: '#DE933D', width: 80}}></View>
+            <TouchableOpacity onPress={openModalHandler}>
+              <Text style={{color: '#DE933D', fontSize: 18,}}>more info</Text>
+              <View style={{ borderBottomWidth: 2, borderBottomColor: '#DE933D', width: 80}}></View>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
       <View style={{flexDirection: 'column'}}>
-        <View style={{height: 100, transform: [{translateY: -100}], position: 'relative'}}>
+        {/* <View style={{height: 100, transform: [{translateY: -100}], position: 'relative'}}>
           <Group/>
-        </View>
+        </View> */}
         <View style={{backgroundColor: 'blue'}}>
           <Image
             style={{width: '100%', height: 330}}
-            source={require('../../../assets/images/Rectangle200.png')}
+            source={require('../../../../../assets/images/Rectangle200.png')}
           />
         </View>
       </View>
       <FAB
         style={styles.fab}
         small
-        icon="plus"
-        onPress={() => console.log('Pressed')}
+        icon="settings"
+        onPress={()=> props.navigation.navigate('Adjust Temp')}
+      />
+      <MoreInfoModal
+       modalVisible={modalVisible} 
+       cancel={closeModalHandler} 
       />
     </ScrollView>
   )
@@ -85,4 +106,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home
+export default WineDetails
