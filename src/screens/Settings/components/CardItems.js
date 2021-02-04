@@ -8,12 +8,18 @@ const CardItem = props => {
     <Card style={{...styles.container, ...props.style,}} onPress={props.onPress}>
       <Card.Content style={{ borderLeftWidth: 3, borderLeftColor: '#26B6BB',}}>
         <View style={{flexDirection: 'row', justifyContent: 'space-between',}}>
-          <Title style={styles.cardTitle}>{props.title}</Title>
-          <Title style={styles.cardCaption}>{props.date}</Title>
+          {props.title &&<Title style={styles.cardTitle}>{props.title}</Title>}
+          {props.wineName && props.wineName}
+          {props.date && <Title style={styles.cardCaption}>{props.date}</Title>}
+          {props.temperature && props.temperature}
         </View>
         <View style={{flexDirection: 'row', justifyContent: 'space-between',}}>
-          <Text style={styles.cardSubTitle}>{props.changes}</Text>
-          <Text style={styles.cardSubCaption}>{props.delivered}</Text>
+          {props.changes && <Text style={styles.cardSubTitle}>{props.changes}</Text>}
+          {props.route && props.route}
+
+          {props.delivered&&<Text style={styles.cardSubCaption}>{props.delivered}</Text>}
+          {props.eta && props.eta}
+
         </View>
       </Card.Content>
     </Card>
@@ -38,19 +44,21 @@ const styles = StyleSheet.create({
   },
   cardTitle:{
     fontFamily: 'Lato-Bold',
-    width: 200,
-    paddingTop: 5,
-    
     color: '#C92459',
-    textAlignVertical: 'top'
+    paddingTop: 5,
+    textAlignVertical: 'top',
+    width: 200,
+    height:'auto'
+    // backgroundColor:'red',
 
   },
   cardCaption:{
     fontFamily: 'Lato-Regular',
     color: '#C92459', 
-    // fontSize: 18,
     paddingTop: 5,
     textAlignVertical: 'top'
+    // fontSize: 18,
+    // backgroundColor:'red',
   },
   cardSubTitle:{
     paddingTop: 10, 

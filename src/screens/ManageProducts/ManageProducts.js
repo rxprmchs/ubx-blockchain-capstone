@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { StyleSheet, View, ScrollView } from 'react-native'
 import { Card, Title, Paragraph, Button, Text, Caption, Appbar, FAB } from 'react-native-paper';
 
@@ -9,35 +9,35 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 const goodsss = [
   {
-    wine: 'Romanée-Conti Grand Cru',
+    wine: 'Romanée-Conti Grand',
     currentTempCelcius : 12.2,
     origin : 'Netherlands',
     destination : 'Japan',
     etaDays : '2',
   },
   {
-    wine: 'Romanée-Conti Grand Cru',
+    wine: 'Romanée-Conti Grand Cru A',
     currentTempCelcius : 12.2,
     origin : 'Netherlands',
     destination : 'Japan',
     etaDays : '2',
   },
   {
-    wine: 'Romanée-Conti Grand Cru',
+    wine: 'Romanée-Conti Grand Cru B',
     origin : 'Netherlands',
     destination : 'Japan',
     etaDays : '2',
     currentTempCelcius : 12.2,
   },
   {
-    wine: 'Romanée-Conti Grand Cru',
+    wine: 'Romanée-Conti Grand Cru C',
     currentTempCelcius : 12.2,
     origin : 'Netherlands',
     destination : 'Japan',
     etaDays : '2',
   },
   {
-    wine: 'Romanée-Conti Grand Cru',
+    wine: 'Romanée-Conti Grand Cru D',
     currentTempCelcius : 12.2,
     origin : 'Netherlands',
     destination : 'Japan',
@@ -51,6 +51,10 @@ const ManageProducts = props => {
   // console.log(goodsss)
   const [goods, setGoods] = useState(goodsss)
 
+  useEffect (()=>{
+    goodsss && setGoods(goodsss)
+  },[])
+    
   const deleteProduct = (index) =>{
     let temp = goods;
     // console.log('====before splice====')
@@ -62,12 +66,37 @@ const ManageProducts = props => {
   }
 
   const listGoods = () => {
-    return goods.map((item, i) => {
+    return goods && goods.map((item, i) => {
       console.log(item)
 
-      let temperature = <View style={{flexDirection: 'row'}}>
-        <MaterialCommunityIcons style={{alignSelf: 'center', marginRight: 5}} color="#C92459" name='thermometer' size={18}/>
-        <Title style={{textAlignVertical: 'top', color:'#C92459'}}>{item.currentTempCelcius+ '°c'}</Title>
+      let wineName = 
+      <View style={{flexDirection: 'row', width: 220}}>
+        {/* <MaterialCommunityIcons style={{alignSelf: 'center', marginRight: 5}} color="#C92459" name='thermometer' size={19}/> */}
+        <Title style={{textAlignVertical: 'top', color:'#C92459', fontFamily: 'Lato-Bold', alignContent: 'flex-start'}}>{item.wine}</Title>
+      </View>
+
+      let temperature = 
+      <View style={{flexDirection: 'row'}}>
+        <MaterialCommunityIcons style={{marginRight: 5, marginTop: 5}} color="#C92459" name='thermometer' size={20}/>
+        <Title style={{textAlignVertical: 'top', color:'#C92459', fontFamily: 'Lato-Regular',}}>
+          {item.currentTempCelcius+ '°c'}
+        </Title>
+      </View>
+
+      let route = 
+      <View style={{flexDirection: 'row', }}>
+        <MaterialCommunityIcons style={{alignSelf: 'center', }} color="#DE933D" name='map-marker' size={18}/>
+        <Text style={{textAlignVertical: 'center', color:'#DE933D', fontFamily: 'Lato-Regular',}}>{item.origin +' - '}</Text>
+        <MaterialCommunityIcons style={{alignSelf: 'center', }} color="#DE933D" name='airplane' size={18}/>
+        <Text style={{textAlignVertical: 'center', color:'#DE933D', fontFamily: 'Lato-Regular',}}>{item.destination}</Text>
+      </View>
+
+      let eta = 
+      <View style={{flexDirection: 'row', }}>
+        {/* <MaterialCommunityIcons style={{alignSelf: 'center', }} color="#DE933D" name='map-marker' size={18}/> */}
+        <Text style={{textAlignVertical: 'center', color:'#BCBCBC', fontFamily: 'Lato-Regular',}}>{item.etaDays + ' day(s) until arrival'}</Text>
+        {/* <MaterialCommunityIcons style={{alignSelf: 'center', }} color="#DE933D" name='airplane' size={18}/> */}
+        {/* <Text style={{textAlignVertical: 'center', color:'#DE933D', fontFamily: 'Lato-Regular',}}>{item.destination}</Text> */}
       </View>
 
       return(
@@ -75,17 +104,16 @@ const ManageProducts = props => {
           style={styles.wineCard}
           key={i}
           item={item}
-          title={item.wine}
-          date={temperature}
-          changes={item.origin +' - '+ item.destination}
-          delivered={item.etaDays + ' day(s) until arrival'}
+          wineName={wineName}
+          temperature={temperature}
+          route={route}
+          eta={eta}
           onPress={() => console.log('Pressed: '+ i)}
           // onPress={() => props.navigation.navigate('Product Info', {item: item, deleteGoods: deleteProduct})}
         />
       )
     })
   }
-  const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
 
   return(
     <View
@@ -170,6 +198,13 @@ const styles = StyleSheet.create({
     color: '#C92459', 
     // fontSize: 18,
     paddingTop: 5,
+    textAlignVertical: 'top'
+  },
+  cardSubTitle:{
+    paddingTop: 10, 
+    paddingBottom: 10,
+    color: '#DE933D',
+    fontSize: 16,
     textAlignVertical: 'top'
   },
 });
