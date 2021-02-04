@@ -119,11 +119,11 @@ const ManageProducts = props => {
     <View
       style={{...styles.container}}
     >
-      <Appbar.Header backgroundColor="white">
-        <Appbar.Action icon="menu" size={20} onPress={() => {}} />
-       <Appbar.Content color="#fff" title="Wine List" />
-        <Appbar.Action icon="magnify" size={20} onPress={() => {}} />
-        <Appbar.Action icon='bell-outline' size={20} onPress={() => {}} />
+      <Appbar.Header style={{backgroundColor:'white'}}>
+        <Appbar.Action color="#BCBCBC" icon="menu" size={20} onPress={() => {}} />
+        <Appbar.Content color="#C92459" title="Wine List" />
+        <Appbar.Action color="#BCBCBC" icon="magnify" size={20} onPress={() => {}} />
+        <Appbar.Action color="#BCBCBC" icon='bell-outline' size={20} onPress={() => {}} />
       </Appbar.Header>
 
       <ScrollView
