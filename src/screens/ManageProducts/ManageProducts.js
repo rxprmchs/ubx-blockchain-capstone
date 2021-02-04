@@ -1,87 +1,60 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { StyleSheet, View, ScrollView } from 'react-native'
-import { Card, Title, Paragraph, Button, Text, Caption, Appbar } from 'react-native-paper';
+import { Card, Title, Paragraph, Button, Text, Caption, Appbar, FAB } from 'react-native-paper';
 
 import HeaderContianer from '../../shared/components/Container/HeaderContainer/HeaderContainer';
-import CardItem from './components/CardItems';
+import CardItem from '../Settings/components/CardItems';
+import Fab from '../Settings/components/Fab';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const goodsss = [
   {
-    goodsId: 0,
-    farmerId: 0,
-    goodsName: 'Native Chicken',
-    quantityType : 'kg',
-    quantityValue : '1000',
-    amountPerUnit : '50',
-    amount : '8000',
-    additionalDesc :'Chicken alive',
-    plantationDate : '2008-01-01 00:00:01',
-    harvestDate : '2008-01-01 00:00:01',
-    createdAt : '2007-01-01 00:00:01',
-    updatedAt : '2008-01-01 00:00:01',
+    wine: 'Romanée-Conti Grand',
+    currentTempCelcius : 12.2,
+    origin : 'Netherlands',
+    destination : 'Japan',
+    etaDays : '2',
   },
   {
-    goodsId: 1,
-    farmerId: 1,
-    goodsName: 'Native Potato',
-    quantityType : 'kg',
-    quantityValue : '500',
-    amountPerUnit : '50',
-    amount : '5000',
-    additionalDesc :'Potato',
-    plantationDate : '2008-01-01 00:00:01',
-    harvestDate : '2008-01-01 00:00:01',
-    createdAt : '2007-01-01 00:00:01',
-    updatedAt : '2008-01-01 00:00:01',
+    wine: 'Romanée-Conti Grand Cru A',
+    currentTempCelcius : 12.2,
+    origin : 'Netherlands',
+    destination : 'Japan',
+    etaDays : '2',
   },
   {
-    goodsId: 1,
-    farmerId: 1,
-    goodsName: 'Wheat',
-    quantityType : 'kg',
-    quantityValue : '2000',
-    amountPerUnit : '50',
-    amount : '9000',
-    additionalDesc :'wheat dried',
-    plantationDate : '2008-01-01 00:00:01',
-    harvestDate : '2008-01-01 00:00:01',
-    createdAt : '2007-01-01 00:00:01',
-    updatedAt : '2008-01-01 00:00:01',
+    wine: 'Romanée-Conti Grand Cru B',
+    origin : 'Netherlands',
+    destination : 'Japan',
+    etaDays : '2',
+    currentTempCelcius : 12.2,
   },
   {
-    goodsId: 1,
-    farmerId: 1,
-    goodsName: 'Cashews',
-    quantityType : 'kg',
-    quantityValue : '3000',
-    amountPerUnit : '50',
-    amount : '4000',
-    additionalDesc :'Cashews unprocessed',
-    plantationDate : '2008-01-01 00:00:01',
-    harvestDate : '2008-01-01 00:00:01',
-    createdAt : '2007-01-01 00:00:01',
-    updatedAt : '2008-01-01 00:00:01',
+    wine: 'Romanée-Conti Grand Cru C',
+    currentTempCelcius : 12.2,
+    origin : 'Netherlands',
+    destination : 'Japan',
+    etaDays : '2',
   },
   {
-    goodsId: 1,
-    farmerId: 1,
-    goodsName: 'Pecans',
-    quantityType : 'kg',
-    quantityValue : '4000',
-    amountPerUnit : '50',
-    amount : '7000',
-    additionalDesc :'Pecans whole',
-    plantationDate : '2008-01-01 00:00:01',
-    harvestDate : '2008-01-01 00:00:01',
-    createdAt : '2007-01-01 00:00:01',
-    updatedAt : '2008-01-01 00:00:01',
+    wine: 'Romanée-Conti Grand Cru D',
+    currentTempCelcius : 12.2,
+    origin : 'Netherlands',
+    destination : 'Japan',
+    etaDays : '2',
   },
+  
+  
 ]
 
 const ManageProducts = props => {
   // console.log(goodsss)
   const [goods, setGoods] = useState(goodsss)
 
+  useEffect (()=>{
+    goodsss && setGoods(goodsss)
+  },[])
+    
   const deleteProduct = (index) =>{
     let temp = goods;
     // console.log('====before splice====')
@@ -93,29 +66,64 @@ const ManageProducts = props => {
   }
 
   const listGoods = () => {
-    return goods.map((item, i) => {
+    return goods && goods.map((item, i) => {
       console.log(item)
+
+      let wineName = 
+      <View style={{flexDirection: 'row', width: 220}}>
+        {/* <MaterialCommunityIcons style={{alignSelf: 'center', marginRight: 5}} color="#C92459" name='thermometer' size={19}/> */}
+        <Title style={{textAlignVertical: 'top', color:'#C92459', fontFamily: 'Lato-Bold', alignContent: 'flex-start'}}>{item.wine}</Title>
+      </View>
+
+      let temperature = 
+      <View style={{flexDirection: 'row'}}>
+        <MaterialCommunityIcons style={{marginRight: 5, marginTop: 5}} color="#C92459" name='thermometer' size={20}/>
+        <Title style={{textAlignVertical: 'top', color:'#C92459', fontFamily: 'Lato-Regular',}}>
+          {item.currentTempCelcius+ '°c'}
+        </Title>
+      </View>
+
+      let route = 
+      <View style={{flexDirection: 'row', }}>
+        <MaterialCommunityIcons style={{alignSelf: 'center', }} color="#DE933D" name='map-marker' size={18}/>
+        <Text style={{textAlignVertical: 'center', color:'#DE933D', fontFamily: 'Lato-Regular',}}>{item.origin +' - '}</Text>
+        <MaterialCommunityIcons style={{alignSelf: 'center', }} color="#DE933D" name='airplane' size={18}/>
+        <Text style={{textAlignVertical: 'center', color:'#DE933D', fontFamily: 'Lato-Regular',}}>{item.destination}</Text>
+      </View>
+
+      let eta = 
+      <View style={{flexDirection: 'row', }}>
+        {/* <MaterialCommunityIcons style={{alignSelf: 'center', }} color="#DE933D" name='map-marker' size={18}/> */}
+        <Text style={{textAlignVertical: 'center', color:'#BCBCBC', fontFamily: 'Lato-Regular',}}>{item.etaDays + ' day(s) until arrival'}</Text>
+        {/* <MaterialCommunityIcons style={{alignSelf: 'center', }} color="#DE933D" name='airplane' size={18}/> */}
+        {/* <Text style={{textAlignVertical: 'center', color:'#DE933D', fontFamily: 'Lato-Regular',}}>{item.destination}</Text> */}
+      </View>
+
       return(
         <CardItem
+          style={styles.wineCard}
           key={i}
           item={item}
-          title="Product A" 
-          caption="Update your basic information that will be seen by merchants"
-          onPress={() => props.navigation.navigate('Product Info', {item: item, deleteGoods: deleteProduct})}
+          wineName={wineName}
+          temperature={temperature}
+          route={route}
+          eta={eta}
+          onPress={() => console.log('Pressed: '+ i)}
+          // onPress={() => props.navigation.navigate('Product Info', {item: item, deleteGoods: deleteProduct})}
         />
       )
     })
   }
-  const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
 
   return(
     <View
       style={{...styles.container}}
     >
-      <Appbar.Header backgroundColor="red">
+      <Appbar.Header backgroundColor="white">
+        <Appbar.Action icon="menu" size={20} onPress={() => {}} />
        <Appbar.Content color="#fff" title="Wine List" />
-        <Appbar.Action icon="magnify" onPress={() => {}} />
-        <Appbar.Action icon={MORE_ICON} onPress={() => {}} />
+        <Appbar.Action icon="magnify" size={20} onPress={() => {}} />
+        <Appbar.Action icon='bell-outline' size={20} onPress={() => {}} />
       </Appbar.Header>
 
       <ScrollView
@@ -124,14 +132,17 @@ const ManageProducts = props => {
         {listGoods()}
       </ScrollView>
 
-      <Button 
+      <Fab/>
+
+
+      {/* <Button 
         icon="plus" 
         mode="contained" 
         style={{...styles.btn}}
         onPress={() => props.navigation.navigate('Add Product')}
       >
         ADD A PRODUCT
-      </Button>
+      </Button> */}
     </View>
   )
 }
@@ -140,7 +151,7 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FBFBFB',
   },
   headerContainer:{
     alignItems: 'center',
@@ -170,7 +181,32 @@ const styles = StyleSheet.create({
   },
   cardCaption:{
     fontFamily: 'Lato-Regular'
-  }
+  },
+  wineCard: {
+    // borderTopRightRadius: 15,
+    // borderBottomRightRadius: 15,
+    marginTop: 15,
+    marginBottom: 10 ,
+    // borderWidth: 0.5,
+    // borderTopColor: '#00000033',
+    // borderBottomColor: '#00000033',
+    // borderRightColor: '#00000033',
+    // borderLeftWidth: 0,
+  },
+  cardCaption:{
+    fontFamily: 'Lato-Regular',
+    color: '#C92459', 
+    // fontSize: 18,
+    paddingTop: 5,
+    textAlignVertical: 'top'
+  },
+  cardSubTitle:{
+    paddingTop: 10, 
+    paddingBottom: 10,
+    color: '#DE933D',
+    fontSize: 16,
+    textAlignVertical: 'top'
+  },
 });
 
 
