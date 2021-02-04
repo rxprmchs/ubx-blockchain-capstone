@@ -46,18 +46,7 @@ const Login = props => {
     setPassword('')
     }
   }
-
-  const createFarmerHandler = () => {
-    setVisible(false)
-    props.navigation.navigate('Farmer Signup')
-  }
-
-  const createWholeSalerHandler = () => {
-    setVisible(false)
-    props.navigation.navigate('Wholesaler Signup')
-  }
   
-
   return(
     <BgLeaf>
       <Surface style={styles.loginContainer}>
@@ -91,34 +80,6 @@ const Login = props => {
         >
           <Text style={styles.btnText}>Login</Text>
         </Button>
-        {/* <Text onPress={showModal} style={styles.textNoAccount}>Don't have an account?</Text>
-        <Portal>
-          <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={styles.modal}>
-            <View style={{flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center'}}>
-              <Title style={{fontFamily: 'Lato-Bold'}}>Choose Account Type</Title>
-              <View style={{ borderBottomColor: '#6200ee', borderBottomWidth: 2, width: 100, marginBottom: 10,}}/>
-              <Button 
-                mode="contained" 
-                style={styles.createBtn}
-                onPress={loginHandler}
-                uppercase
-                onPress={() => createFarmerHandler()}
-                >
-                <Text style={styles.btnCreateText}>Create Farmer</Text>
-              </Button>
-                <Text style={{textAlign: 'center'}}>OR</Text>
-                <Button 
-                  mode="contained" 
-                  style={styles.createBtn}
-                  onPress={loginHandler}
-                  uppercase
-                  onPress={() => createWholeSalerHandler()}
-                >
-                  <Text style={styles.btnCreateText}>Create Wholesaler</Text>
-              </Button>
-            </View>
-          </Modal>
-        </Portal> */}
       </Surface>
     </BgLeaf>
   )

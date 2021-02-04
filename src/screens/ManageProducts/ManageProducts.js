@@ -3,41 +3,41 @@ import { StyleSheet, View, ScrollView } from 'react-native'
 import { Card, Title, Paragraph, Button, Text, Caption, Appbar, FAB } from 'react-native-paper';
 
 import HeaderContianer from '../../shared/components/Container/HeaderContainer/HeaderContainer';
-import CardItem from '../Settings/components/CardItems';
-import Fab from '../Settings/components/Fab';
+import CardItem from './components/WineItem';
+import Fab from './components/Fab';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const goodsss = [
   {
-    wine: 'Romanée-Conti Grand',
+    wine: 'Romanée-Conti Grand Cru',
     currentTempCelcius : 12.2,
     origin : 'Netherlands',
     destination : 'Japan',
     etaDays : '2',
   },
   {
-    wine: 'Romanée-Conti Grand Cru A',
+    wine: 'Romanée-Conti Grand Cru',
     currentTempCelcius : 12.2,
     origin : 'Netherlands',
     destination : 'Japan',
     etaDays : '2',
   },
   {
-    wine: 'Romanée-Conti Grand Cru B',
+    wine: 'Romanée-Conti Grand Cru',
     origin : 'Netherlands',
     destination : 'Japan',
     etaDays : '2',
     currentTempCelcius : 12.2,
   },
   {
-    wine: 'Romanée-Conti Grand Cru C',
+    wine: 'Romanée-Conti Grand Cru',
     currentTempCelcius : 12.2,
     origin : 'Netherlands',
     destination : 'Japan',
     etaDays : '2',
   },
   {
-    wine: 'Romanée-Conti Grand Cru D',
+    wine: 'Romanée-Conti Grand Cru',
     currentTempCelcius : 12.2,
     origin : 'Netherlands',
     destination : 'Japan',
@@ -108,7 +108,7 @@ const ManageProducts = props => {
           temperature={temperature}
           route={route}
           eta={eta}
-          onPress={() => console.log('Pressed: '+ i)}
+          onPress={() => props.navigation.navigate('Wine Details')}
           // onPress={() => props.navigation.navigate('Product Info', {item: item, deleteGoods: deleteProduct})}
         />
       )
@@ -119,9 +119,9 @@ const ManageProducts = props => {
     <View
       style={{...styles.container}}
     >
-      <Appbar.Header backgroundColor="white">
+      <Appbar.Header style={{backgroundColor: '#FFF'}} backgroundColor="white">
         <Appbar.Action icon="menu" size={20} onPress={() => {}} />
-       <Appbar.Content color="#fff" title="Wine List" />
+        <Appbar.Content color="#C92459" title="Wine List" />
         <Appbar.Action icon="magnify" size={20} onPress={() => {}} />
         <Appbar.Action icon='bell-outline' size={20} onPress={() => {}} />
       </Appbar.Header>
