@@ -8,6 +8,7 @@ import WineDetails from '../../../screens/ManageProducts/pages/WineDetails/WineD
 import AdjustTemp from '../../../screens/ManageProducts/pages/WineDetails/AdjustTemp'
 import SampleScreen1 from '../../../screens/SampleComponent1/SampleComponent1'
 import SampleScreen2 from '../../../screens/SampleComponent2/SampleComponent2'
+import SelectDestination from '../../../screens/ManageProducts/pages/SelectDestination/SelectDestination'
 
 const Stack = createStackNavigator()
 const Tab = createMaterialBottomTabNavigator();
@@ -18,7 +19,8 @@ const MainMenu = props => {
     return(
       <>
       <Stack.Navigator initialRouteName="Manage" headerMode="none">
-        <Stack.Screen name="Manage Products" component={ManageProducts} options={{ title: "Home" }}/>
+        <Stack.Screen name="Manage Products" component={ManageProducts}/>
+        <Stack.Screen name="Select Destination" component={SelectDestination}/>
         <Stack.Screen name="Wine Details" component={WineDetails} />
         <Stack.Screen name="Adjust Temp" component={AdjustTemp} />
       </Stack.Navigator>

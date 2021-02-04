@@ -132,7 +132,9 @@ const ManageProducts = props => {
         {listGoods()}
       </ScrollView>
 
-      <Fab/>
+      <Fab
+        onPress={() => props.navigation.navigate('Select Destination')}
+      />
 
 
       {/* <Button 
