@@ -4,7 +4,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Home from '../../../screens/Home/Home'
-import TransactionDetails from '../../../screens/Home/components/TransactionHistory/components/TransactionDetails'
 import Settings from '../../../screens/Settings/Settings'
 
 import ManageProducts from '../../../screens/ManageProducts/ManageProducts'
@@ -23,7 +22,6 @@ const MainMenu = props => {
       <>
       <Stack.Navigator initialRouteName="Home" headerMode="none">
         <Stack.Screen name="Home" component={Home} options={{ title: "Home" }}/>
-        <Stack.Screen name="Transaction Details" component={TransactionDetails} options={{ title: "Transaction Details" }}/>
       </Stack.Navigator>
     </>
     )
