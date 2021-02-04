@@ -44,7 +44,7 @@ const Header = props => {
           <Card elevation={4} style={styles.userCardContainer}>
             <Card.Content style={styles.userCardContent}>
               <View style={styles.userAvatar}>
-                <Avatar.Image  size={100} style={{backgroundColor: '#6200EE'}} source={Profile}/>
+                {/* <Avatar.Image  size={100} style={{backgroundColor: '#6200EE'}} source={Profile}/> */}
               </View>
               <View style={styles.userInfo}>
                 <Text style={{fontFamily: 'Lato-Bold', fontSize: 16,}}>James Andrew Cornes</Text>
