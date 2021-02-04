@@ -2,10 +2,13 @@ import React, {useState, useEffect} from 'react'
 import { StyleSheet, View, ScrollView } from 'react-native'
 import { Card, Title, Paragraph, Button, Text, Caption, Appbar, FAB } from 'react-native-paper';
 
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import HeaderContianer from '../../shared/components/Container/HeaderContainer/HeaderContainer';
 import CardItem from '../Settings/components/CardItems';
 import Fab from '../Settings/components/Fab';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import AddWineModal from '../Settings/components/AddWineModal';
+
+
 
 const goodsss = [
   {
@@ -50,7 +53,8 @@ const goodsss = [
 const ManageProducts = props => {
   // console.log(goodsss)
   const [goods, setGoods] = useState(goodsss)
-
+  const [isModalVisible, setisModalVisible] = useState(false)
+  
   useEffect (()=>{
     goodsss && setGoods(goodsss)
   },[])
@@ -132,8 +136,16 @@ const ManageProducts = props => {
         {listGoods()}
       </ScrollView>
 
-      <Fab/>
+      <Fab
+        onPress={()=>{setisModalVisible(true)}}
 
+      />
+
+      <AddWineModal
+        modalVisible={isModalVisible}
+        cancel={()=>{setisModalVisible(false)}}
+
+      />
 
       {/* <Button 
         icon="plus" 
