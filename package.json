@@ -31,7 +31,8 @@
     "react-native-svg": "12.1.0",
     "react-native-svg-transformer": "^0.14.3",
     "react-native-web": "~0.13.12",
-    "expo-camera": "~9.0.0"
+    "expo-camera": "~9.0.0",
+    "expo-linear-gradient": "~8.3.0"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0"

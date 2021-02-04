@@ -54,13 +54,13 @@ const AdjustTemp = props => {
         <CardItem 
           title="Temperature was changed" 
           date="3 day(s) ago"
-          changes="From: 16c - To: 11c"
+          changes="From: 16c → To: 11c"
           onPress={() => console.log('Clicked!')}
         />
        <CardItem 
           title="Threshhold exceeded" 
           date="3 day(s) ago"
-          changes="From: 12c - To: 16c"
+          changes="From: 12c → To: 16c"
           onPress={() => console.log('Clicked!')}
         />
       </Surface>

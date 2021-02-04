@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Camera } from 'expo-camera';
+import VerifySuccessModal from './components/VerifySuccessModal'
 
-export default function App() {
+const CameraQR = (props)=> {
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
+  const [modalVisible, setModalVisible] = useState(false)
+
+  const openModalHandler = () => {
+    setModalVisible(true)
+  }
+  
+  const closeModalHandler = () => {
+    setModalVisible(false)
+  }
 
   useEffect(() => {
     (async () => {
@@ -34,19 +44,28 @@ export default function App() {
           <TouchableOpacity
             style={styles.btnPrimary}
             onPress={() => {
-              
+              // props.navigation.navigate('Wine Summary')
+              setModalVisible(true)
               // setType(
               //   type === Camera.Constants.Type.back
               //     ? Camera.Constants.Type.front
               //     : Camera.Constants.Type.back
               // );
             }}>
-            <Text style={{textAlign:'center', fontSize:18}}>SCAN THE QUORK'S QR CODE</Text>
+            <Text style={{textAlign:'center', fontSize:18, color: 'white'}}>SCAN THE QUORK'S QR CODE</Text>
           </TouchableOpacity>
 
         </View>
 
       </Camera>
+      <VerifySuccessModal
+        onPress={()=>{
+          closeModalHandler()
+          props.navigation.navigate('Wine Summary')
+        }}
+        modalVisible={modalVisible} 
+        cancel={closeModalHandler} 
+      />  
     </View>
   );
 }
@@ -58,7 +77,8 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 		alignItems: 'center',
     // width: 295,
-    padding: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
 		// height: 30,
 		borderRadius: 25,
 		marginTop: 'auto',
@@ -67,3 +87,5 @@ const styles = StyleSheet.create({
     
 	  },
  }); 
+
+ export default CameraQR;

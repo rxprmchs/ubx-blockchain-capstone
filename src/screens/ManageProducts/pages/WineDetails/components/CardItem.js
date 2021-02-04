@@ -10,7 +10,11 @@ const CardItem = props => {
         <View style={{flexDirection: 'row', justifyContent: 'space-between',}}>
           {props.title &&<Title style={styles.cardTitle}>{props.title}</Title>}
           {props.wineName && props.wineName}
-          {props.date && <Title style={styles.cardCaption}>{props.date}</Title>}
+          {props.date && 
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <MaterialCommunityIcons style={{alignSelf: 'center', paddingRight: 5, paddingTop: 5}} color="#DE933D" name='clock-outline' size={25}/>
+              <Title style={styles.cardCaption}>{props.date}</Title>
+            </View>}
           {props.temperature && props.temperature}
         </View>
         <View style={{flexDirection: 'row', justifyContent: 'space-between',}}>

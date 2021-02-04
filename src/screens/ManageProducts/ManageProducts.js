@@ -71,8 +71,6 @@ const ManageProducts = props => {
 
   const listGoods = () => {
     return goods && goods.map((item, i) => {
-      console.log(item)
-
       let wineName = 
       <View style={{flexDirection: 'row', width: 220}}>
         {/* <MaterialCommunityIcons style={{alignSelf: 'center', marginRight: 5}} color="#C92459" name='thermometer' size={19}/> */}

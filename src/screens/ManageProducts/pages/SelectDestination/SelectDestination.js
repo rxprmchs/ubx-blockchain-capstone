@@ -8,13 +8,14 @@ const  SelectDestination = props =>{
 
   return(
     <ScrollView style={{backgroundColor: '#fff'}}>
-      <TouchableOpacity onPress={()=> props.navigation.navigate('Manage Products')} style={{position: 'absolute', top: 0, marginLeft: 16, marginTop: 30}}>
-        <Avatar.Icon size={30} style={{backgroundColor: '#fff', borderColor: '#000'}}  icon="arrow-left" color="#BCBCBC"/>
-      </TouchableOpacity>
       <Image
         style={{width: '100%',}}
         source={require('../../../../../assets/images/Rectangle200.png')}
       />
+      <TouchableOpacity onPress={()=> props.navigation.navigate('Manage Products')} style={{position: 'absolute', top: 0, marginLeft: 16, marginTop: 30}}>
+        <Avatar.Icon size={30} style={{backgroundColor: '#fff', borderColor: '#000'}}  icon="arrow-left" color="#BCBCBC"/>
+      </TouchableOpacity>
+      <MaterialCommunityIcons style={{alignSelf: 'center', top: 0, position: 'absolute', marginTop: 130}} color="#C92459" name='map-marker' size={25}/>
       <Surface style={styles.contentContainer}>
         <Text style={styles.title}>Select a destination</Text>
         <View style={{ borderBottomWidth: 3, borderBottomColor: '#C92459', width: 163, marginBottom: 10}}></View>
@@ -22,6 +23,7 @@ const  SelectDestination = props =>{
           label="Where to?"
           value={text}
           onChangeText={text => setText(text)}
+          theme={{ colors: { primary: '#C92459',underlineColor:'transparent',}}}
         />
         <Text style={{fontWeight: 'bold', fontSize: 18, paddingTop: 20, paddingBottom: 20}}>Recent Places</Text>
         <View style={{flexDirection: 'row', paddingTop: 5}}>

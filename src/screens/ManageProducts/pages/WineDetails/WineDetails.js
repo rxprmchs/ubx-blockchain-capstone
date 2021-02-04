@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { StyleSheet, View, Text, ScrollView, Image, TouchableOpacity} from 'react-native'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { FAB, Avatar } from 'react-native-paper';
 
 import QorkPatternContainer from '../../../../shared/components/Container/QorkPattern/QorkPattern'
@@ -44,19 +45,19 @@ const WineDetails = props => {
           <Text style={{color: '#DE933D', fontSize: 18}}>11 - 14 c</Text>
         </View>
         <View style={{width: 120, alignItems: 'center', justifyContent: 'space-between', height: 100}}>
-          <Text style={{color: '#DE933D', fontSize: 35, fontWeight: 'bold'}}>12.2 c</Text>
+          <Text style={{color: '#DE933D', fontSize: 35, fontWeight: 'bold'}}>12.2°c</Text>
           <View>
             <TouchableOpacity onPress={openModalHandler}>
               <Text style={{color: '#DE933D', fontSize: 18,}}>more info</Text>
-              <View style={{ borderBottomWidth: 2, borderBottomColor: '#DE933D', width: 80}}></View>
+              <View style={{ borderBottomWidth: 2, borderBottomColor: '#DE933D', width: 78}}></View>
             </TouchableOpacity>
           </View>
         </View>
       </View>
       <View style={{flexDirection: 'column'}}>
-        {/* <View style={{height: 100, transform: [{translateY: -100}], position: 'relative'}}>
+        <View style={{height: 50, transform: [{translateY: -60}], position: 'relative'}}>
           <Group/>
-        </View> */}
+        </View>
         <View style={{backgroundColor: 'blue'}}>
           <Image
             style={{width: '100%', height: 330}}
@@ -64,6 +65,7 @@ const WineDetails = props => {
           />
         </View>
       </View>
+      <MaterialCommunityIcons style={{alignSelf: 'center', position: 'absolute', bottom: 0, marginBottom: 220}} color="#DE933D" name='map-marker' size={50}/>
       <FAB
         style={styles.fab}
         small
