@@ -5,6 +5,7 @@ import DateTextInput from './DateTextInput';
 
 const AddWineModal = props => {
   const [text, setText] = useState('');
+  const [birthDate, setBirthDate] = useState()
 
   useEffect(() => {
       const backAction = () => {
@@ -63,21 +64,14 @@ const AddWineModal = props => {
                   />
 
                   <Text style={styles.inputTitle}>Date it was stored</Text>
-                  <DateTextInput
-                    format='YYYY[-]MM[-]DD'
-                    birthDate={birthDate}
-                    setBirthDate={setBirthDate}
-                    styles={{height: 40, width: 380, backgroundColor: '#DEDEDE', marginBottom:20}}
-                    placeholder='YYYY-MM-DD'
-                  />
-                  {/* <TextInput
+                  <TextInput
                     style={{height: 40, width: 380, backgroundColor: '#DEDEDE', marginBottom:20}}
-                    placeholder="Set Temperature"
+                    placeholder="MM-DD-YYYY"
                     placeholderTextColor="#BCBCBC"
                     // value={text}
-                    // onChangeText={text => setText(text)}
-                  /> */}
-
+                    onChangeText={text => setText(text)}
+                  />
+ 
                   <Text style={styles.inputTitle}>Type of wine</Text>
                   <TextInput
                     style={{height: 40, width: 380, backgroundColor: '#DEDEDE', marginBottom:20}}

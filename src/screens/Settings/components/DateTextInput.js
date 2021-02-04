@@ -1,5 +1,5 @@
 
-import { StyleSheet, View, TextInput, TouchableOpacity, Keyboard } from 'react-native'
+import { StyleSheet, View, TextInput, TouchableOpacity, Keyboard, Platform} from 'react-native'
 import React, { useState } from 'react'
 
 import DateTimePicker from '@react-native-community/datetimepicker';
@@ -32,7 +32,7 @@ const DateTextInput = ({
   
   return (
     <View>
-      <TouchableOpacity delayPressIn={0}
+      <TouchableOpacity 
         activeOpacity={1.0}
         onPress={() => {
           setShowCalendar(true)
@@ -44,9 +44,10 @@ const DateTextInput = ({
           pointerEvents='none'
         >
           <TextInput
-            style={{  ...styles.textInput, flex: 1, }}
+            style={{height: 40, width: 380, backgroundColor: '#DEDEDE', marginBottom:20, paddingLeft: 16, fontSize:16}}
             value={date}
-            placeholder={placeholder}
+            placeholder={placeholder} 
+            placeholderTextColor="#BCBCBC"
           />
       
           <MaterialCommunityIcons
@@ -77,10 +78,6 @@ const styles = StyleSheet.create({
     color: '#bcbcbc',
   },
   textInput: {
-    backgroundColor: "#FBFBFB",
-    paddingHorizontal: 10,
-    height: 41,
-    width: "100%",
     justifyContent: "center",
     alignItems: "center",
     borderColor: "#d3d3d3",
