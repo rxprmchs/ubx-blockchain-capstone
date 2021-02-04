@@ -3,47 +3,26 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import { createStackNavigator } from "@react-navigation/stack";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import Home from '../../../screens/Home/Home'
-import Settings from '../../../screens/Settings/Settings'
-
 import ManageProducts from '../../../screens/ManageProducts/ManageProducts'
-import ProductInfo from '../../../screens/ManageProducts/pages/ProductInfo/ProductInfo'
-import AddProduct from '../../../screens/ManageProducts/pages/AddProduct/AddProduct'
-import EditProduct from '../../../screens/ManageProducts/pages/EditProduct/EditProduct'
+import WineDetails from '../../../screens/ManageProducts/pages/WineDetails/WineDetails'
+import AdjustTemp from '../../../screens/ManageProducts/pages/WineDetails/AdjustTemp'
+import SampleScreen1 from '../../../screens/SampleComponent1/SampleComponent1'
+import SampleScreen2 from '../../../screens/SampleComponent2/SampleComponent2'
+import SelectDestination from '../../../screens/ManageProducts/pages/SelectDestination/SelectDestination'
 
 const Stack = createStackNavigator()
 const Tab = createMaterialBottomTabNavigator();
 
 const MainMenu = props => {
-  const [visible, setVisible] = useState(true);
 
-  const HomeComponents = () => {
-    return(
-      <>
-      <Stack.Navigator initialRouteName="Home" headerMode="none">
-        <Stack.Screen name="Home" component={Home} options={{ title: "Home" }}/>
-      </Stack.Navigator>
-    </>
-    )
-  }
-  
-  const SettingsComponents = () => {
-    return(
-      <>
-      <Stack.Navigator initialRouteName="Settings" headerMode="none">
-        <Stack.Screen name="Settings" component={Settings} options={{ title: "Settings" }}/>
-      </Stack.Navigator>
-    </>
-    )
-  }
   const ManageComponents = () => {
     return(
       <>
       <Stack.Navigator initialRouteName="Manage" headerMode="none">
-        <Stack.Screen name="Manage Products" component={ManageProducts} options={{ title: "Settings" }}/>
-        <Stack.Screen name="Product Info" component={ProductInfo} options={{ title: "Product Info" }}/>
-        <Stack.Screen name="Add Product" component={AddProduct} options={{ title: "Add Product" }}/>
-        <Stack.Screen name="Edit Product" component={EditProduct} options={{ title: "Edit Product" }}/>
+        <Stack.Screen name="Manage Products" component={ManageProducts}/>
+        <Stack.Screen name="Select Destination" component={SelectDestination}/>
+        <Stack.Screen name="Wine Details" component={WineDetails} />
+        <Stack.Screen name="Adjust Temp" component={AdjustTemp} />
       </Stack.Navigator>
     </>
     )
@@ -60,35 +39,35 @@ return (
     barStyle={{backgroundColor: '#434343'}}
   >
     <Tab.Screen 
-      name="Manage" 
-      children={ManageComponents} 
+      name="Sample Screen 1" 
+      component={SampleScreen1} 
       options={{
-        tabBarLabel: 'Manage',
-        tabBarIcon: ({ color }) => (
-          <MaterialCommunityIcons name="treasure-chest" color={color} size={26} />
-          ),
-        }}
+      tabBarLabel: 'Sample Screen',
+      tabBarIcon: ({ color }) => (
+        <MaterialCommunityIcons name="checkbox-blank-circle-outline" color={color} size={26} />
+        ),
+      }}
     />
     <Tab.Screen 
       name="Home" 
-      children={HomeComponents} 
+      children={ManageComponents} 
       options={{
         tabBarLabel: 'Home',
         tabBarIcon: ({ color }) => (
           <MaterialCommunityIcons name="apps" color={color} size={26} />
-        ),
-      }}
+          ),
+        }}
     />
     <Tab.Screen 
-      name="Settings" 
-      children={SettingsComponents} 
-      options={{
-        tabBarLabel: 'Change',
-        tabBarIcon: ({ color }) => (
-          <MaterialCommunityIcons name="settings" color={color} size={26} />
+    name="Sample Screen 2" 
+    component={SampleScreen2}
+    options={{
+      tabBarLabel: 'Sample Screen',
+      tabBarIcon: ({ color }) => (
+        <MaterialCommunityIcons name="checkbox-blank-circle-outline" color={color} size={26} />
         ),
       }}
-    />
+  />
   </Tab.Navigator>
 )}
 

@@ -4,43 +4,44 @@ import { Card, Title, Paragraph, Button, Text, Caption, Appbar, FAB } from 'reac
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import HeaderContianer from '../../shared/components/Container/HeaderContainer/HeaderContainer';
-import CardItem from '../Settings/components/CardItems';
-import Fab from '../Settings/components/Fab';
-import AddWineModal from '../Settings/components/AddWineModal';
 
+import AddWineModal from './components/AddWineModal';
+import CardItem from './components/WineItem';
+import Fab from './components/Fab';
 
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const goodsss = [
   {
-    wine: 'Romanée-Conti Grand',
+    wine: 'Romanée-Conti Grand Cru',
     currentTempCelcius : 12.2,
     origin : 'Netherlands',
     destination : 'Japan',
     etaDays : '2',
   },
   {
-    wine: 'Romanée-Conti Grand Cru A',
+    wine: 'Romanée-Conti Grand Cru',
     currentTempCelcius : 12.2,
     origin : 'Netherlands',
     destination : 'Japan',
     etaDays : '2',
   },
   {
-    wine: 'Romanée-Conti Grand Cru B',
+    wine: 'Romanée-Conti Grand Cru',
     origin : 'Netherlands',
     destination : 'Japan',
     etaDays : '2',
     currentTempCelcius : 12.2,
   },
   {
-    wine: 'Romanée-Conti Grand Cru C',
+    wine: 'Romanée-Conti Grand Cru',
     currentTempCelcius : 12.2,
     origin : 'Netherlands',
     destination : 'Japan',
     etaDays : '2',
   },
   {
-    wine: 'Romanée-Conti Grand Cru D',
+    wine: 'Romanée-Conti Grand Cru',
     currentTempCelcius : 12.2,
     origin : 'Netherlands',
     destination : 'Japan',
@@ -112,7 +113,7 @@ const ManageProducts = props => {
           temperature={temperature}
           route={route}
           eta={eta}
-          onPress={() => console.log('Pressed: '+ i)}
+          onPress={() => props.navigation.navigate('Wine Details')}
           // onPress={() => props.navigation.navigate('Product Info', {item: item, deleteGoods: deleteProduct})}
         />
       )
@@ -144,7 +145,7 @@ const ManageProducts = props => {
       <AddWineModal
         modalVisible={isModalVisible}
         cancel={()=>{setisModalVisible(false)}}
-
+        onPress={() => props.navigation.navigate('Select Destination')}
       />
 
       {/* <Button 

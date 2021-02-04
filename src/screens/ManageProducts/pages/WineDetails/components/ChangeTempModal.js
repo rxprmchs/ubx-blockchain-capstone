@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { StyleSheet, View, Modal, BackHandler, TouchableOpacity } from 'react-native'
 import { Avatar, TextInput, Text } from 'react-native-paper';
 
-const ModalUpdate = props => {
+const ChangeTempModal = props => {
   const [text, setText] = useState('');
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const ModalUpdate = props => {
                   <View style={{ borderBottomWidth: 3, borderBottomColor: '#C92459', width: 192, marginBottom: 10}}></View>
                 </View>
                 <TouchableOpacity onPress={()=> props.cancel()}>
-                  <Avatar.Icon size={30} icon="close" color="#BCBCBC"/>
+                  <Avatar.Icon size={30} style={{backgroundColor: '#fff', borderColor: '#000'}} icon="close" color="#BCBCBC"/>
                 </TouchableOpacity>
               </View>
               <TextInput
@@ -151,4 +151,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default ModalUpdate
+export default ChangeTempModal

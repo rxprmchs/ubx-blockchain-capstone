@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { StyleSheet, View, Modal, BackHandler, TouchableOpacity, ScrollView, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard } from 'react-native'
 import { Avatar, TextInput, Text } from 'react-native-paper';
-import DateTextInput from './DateTextInput';
+import DateTextInput from '../../Settings/components/DateTextInput';
 
 const AddWineModal = props => {
   const [text, setText] = useState('');
