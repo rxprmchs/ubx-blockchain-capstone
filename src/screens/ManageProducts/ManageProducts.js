@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import { StyleSheet, View, ScrollView } from 'react-native'
-import { Card, Title, Paragraph, Button, Text, Caption, Appbar, FAB } from 'react-native-paper';
+import { Title,  Text, Appbar } from 'react-native-paper';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import HeaderContianer from '../../shared/components/Container/HeaderContainer/HeaderContainer';
 
 import AddWineModal from './components/AddWineModal';
 import CardItem from './components/WineItem';

@@ -43,7 +43,7 @@ const AddWineModal = props => {
                 </View>
                 {/* //close button */}
                 <TouchableOpacity onPress={()=> props.cancel()}>
-                  <Avatar.Icon size={30} icon="close" color="#BCBCBC"/>
+                <Avatar.Icon size={30} style={{backgroundColor: '#fff', borderColor: '#000'}}  icon="close" color="#BCBCBC"/>
                 </TouchableOpacity>
               </View>
 
