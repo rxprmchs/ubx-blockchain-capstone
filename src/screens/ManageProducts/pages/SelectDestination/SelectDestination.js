@@ -8,13 +8,13 @@ const  SelectDestination = props =>{
 
   return(
     <ScrollView style={{backgroundColor: '#fff'}}>
-      <TouchableOpacity onPress={()=> props.navigation.navigate('Manage Products')} style={{position: 'absolute', top: 0, marginLeft: 16, marginTop: 30}}>
-        <Avatar.Icon size={30} style={{backgroundColor: '#fff', borderColor: '#000'}}  icon="arrow-left" color="#BCBCBC"/>
-      </TouchableOpacity>
       <Image
         style={{width: '100%',}}
         source={require('../../../../../assets/images/Rectangle200.png')}
       />
+      <TouchableOpacity onPress={()=> props.navigation.navigate('Manage Products')} style={{position: 'absolute', top: 0, marginLeft: 16, marginTop: 30}}>
+        <Avatar.Icon size={30} style={{backgroundColor: '#fff', borderColor: '#000'}}  icon="arrow-left" color="#BCBCBC"/>
+      </TouchableOpacity>
       <MaterialCommunityIcons style={{alignSelf: 'center', top: 0, position: 'absolute', marginTop: 130}} color="#C92459" name='map-marker' size={25}/>
       <Surface style={styles.contentContainer}>
         <Text style={styles.title}>Select a destination</Text>

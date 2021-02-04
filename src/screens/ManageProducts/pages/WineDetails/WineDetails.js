@@ -55,9 +55,9 @@ const WineDetails = props => {
         </View>
       </View>
       <View style={{flexDirection: 'column'}}>
-        {/* <View style={{height: 100, transform: [{translateY: -100}], position: 'relative'}}>
+        <View style={{height: 50, transform: [{translateY: -60}], position: 'relative'}}>
           <Group/>
-        </View> */}
+        </View>
         <View style={{backgroundColor: 'blue'}}>
           <Image
             style={{width: '100%', height: 330}}
