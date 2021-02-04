@@ -112,7 +112,7 @@ const AddWineModal = props => {
               </KeyboardAvoidingView>
 
               <View style={{justifyContent: 'center', alignSelf:'center'}}>
-                <TouchableOpacity delayPressIn={0} style={styles.btnPrimary} onPress={()=> props.save()}>
+                <TouchableOpacity delayPressIn={0} style={styles.btnPrimary} onPress={()=> props.proceed && props.proceed()}>
                   <Text style={styles.btnTxt}>PROCEED</Text>
                 </TouchableOpacity> 
               </View>

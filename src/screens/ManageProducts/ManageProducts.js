@@ -9,7 +9,6 @@ import AddWineModal from './components/AddWineModal';
 import CardItem from './components/WineItem';
 import Fab from './components/Fab';
 
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const goodsss = [
   {
@@ -145,7 +144,10 @@ const ManageProducts = props => {
       <AddWineModal
         modalVisible={isModalVisible}
         cancel={()=>{setisModalVisible(false)}}
-        onPress={() => props.navigation.navigate('Select Destination')}
+        proceed={() => {
+          setisModalVisible(false)
+          props.navigation.navigate('Select Destination')
+        }}
       />
 
       {/* <Button 

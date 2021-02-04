@@ -5,6 +5,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import ManageProducts from '../../../screens/ManageProducts/ManageProducts'
 import WineDetails from '../../../screens/ManageProducts/pages/WineDetails/WineDetails'
+import CameraQR from '../../../screens/ManageProducts/pages/CameraQR/CameraQR'
 import AdjustTemp from '../../../screens/ManageProducts/pages/WineDetails/AdjustTemp'
 import SampleScreen1 from '../../../screens/SampleComponent1/SampleComponent1'
 import SampleScreen2 from '../../../screens/SampleComponent2/SampleComponent2'
@@ -21,6 +22,7 @@ const MainMenu = props => {
       <Stack.Navigator initialRouteName="Manage" headerMode="none">
         <Stack.Screen name="Manage Products" component={ManageProducts}/>
         <Stack.Screen name="Select Destination" component={SelectDestination}/>
+        <Stack.Screen name="Camera QR" component={CameraQR}/>
         <Stack.Screen name="Wine Details" component={WineDetails} />
         <Stack.Screen name="Adjust Temp" component={AdjustTemp} />
       </Stack.Navigator>
