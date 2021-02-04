@@ -46,6 +46,7 @@ const ChangeTempModal = props => {
                 style={{width: 380}}
                 label="Set Temperature"
                 value={text}
+                theme={{ colors: { primary: '#C92459',underlineColor:'transparent',}}}
                 onChangeText={text => setText(text)}
               />
             </View>

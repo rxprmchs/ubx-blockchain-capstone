@@ -23,6 +23,7 @@ const  SelectDestination = props =>{
           label="Where to?"
           value={text}
           onChangeText={text => setText(text)}
+          theme={{ colors: { primary: '#C92459',underlineColor:'transparent',}}}
         />
         <Text style={{fontWeight: 'bold', fontSize: 18, paddingTop: 20, paddingBottom: 20}}>Recent Places</Text>
         <View style={{flexDirection: 'row', paddingTop: 5}}>
