@@ -44,7 +44,7 @@ const WineDetails = props => {
           <Text style={{color: '#DE933D', fontSize: 18}}>11 - 14 c</Text>
         </View>
         <View style={{width: 120, alignItems: 'center', justifyContent: 'space-between', height: 100}}>
-          <Text style={{color: '#DE933D', fontSize: 35, fontWeight: 'bold'}}>12.2 c</Text>
+          <Text style={{color: '#DE933D', fontSize: 35, fontWeight: 'bold'}}>12.2°c</Text>
           <View>
             <TouchableOpacity onPress={openModalHandler}>
               <Text style={{color: '#DE933D', fontSize: 18,}}>more info</Text>
