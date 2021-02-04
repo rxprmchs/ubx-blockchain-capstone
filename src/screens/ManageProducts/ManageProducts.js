@@ -2,10 +2,13 @@ import React, {useState, useEffect} from 'react'
 import { StyleSheet, View, ScrollView } from 'react-native'
 import { Card, Title, Paragraph, Button, Text, Caption, Appbar, FAB } from 'react-native-paper';
 
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import HeaderContianer from '../../shared/components/Container/HeaderContainer/HeaderContainer';
+
+import AddWineModal from './components/AddWineModal';
 import CardItem from './components/WineItem';
 import Fab from './components/Fab';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 
 const goodsss = [
   {
@@ -50,7 +53,8 @@ const goodsss = [
 const ManageProducts = props => {
   // console.log(goodsss)
   const [goods, setGoods] = useState(goodsss)
-
+  const [isModalVisible, setisModalVisible] = useState(false)
+  
   useEffect (()=>{
     goodsss && setGoods(goodsss)
   },[])
@@ -117,11 +121,11 @@ const ManageProducts = props => {
     <View
       style={{...styles.container}}
     >
-      <Appbar.Header style={{backgroundColor: '#FFF'}} backgroundColor="white">
-        <Appbar.Action icon="menu" size={20} onPress={() => {}} />
+      <Appbar.Header style={{backgroundColor:'white'}}>
+        <Appbar.Action color="#BCBCBC" icon="menu" size={20} onPress={() => {}} />
         <Appbar.Content color="#C92459" title="Wine List" />
-        <Appbar.Action icon="magnify" size={20} onPress={() => {}} />
-        <Appbar.Action icon='bell-outline' size={20} onPress={() => {}} />
+        <Appbar.Action color="#BCBCBC" icon="magnify" size={20} onPress={() => {}} />
+        <Appbar.Action color="#BCBCBC" icon='bell-outline' size={20} onPress={() => {}} />
       </Appbar.Header>
 
       <ScrollView
@@ -131,9 +135,18 @@ const ManageProducts = props => {
       </ScrollView>
 
       <Fab
-        onPress={() => props.navigation.navigate('Select Destination')}
+        onPress={()=>{setisModalVisible(true)}}
+
       />
 
+      <AddWineModal
+        modalVisible={isModalVisible}
+        cancel={()=>{setisModalVisible(false)}}
+        proceed={() => {
+          setisModalVisible(false)
+          props.navigation.navigate('Select Destination')
+        }}
+      />
 
       {/* <Button 
         icon="plus" 

@@ -48,7 +48,7 @@ const  SelectDestination = props =>{
           </View>
         </View>
         <View style={{justifyContent: 'center', alignItems: 'center'}}>
-          <TouchableOpacity delayPressIn={0} style={styles.btnPrimary} onPress={()=> props.navigation.navigate('Wine Summary')}>
+          <TouchableOpacity delayPressIn={0} style={styles.btnPrimary} onPress={()=> props.navigation.navigate('Camera QR')}>
             <Text style={styles.btnTxt}>PROCEED</Text>
           </TouchableOpacity> 
         </View>
