@@ -55,69 +55,6 @@ const Header = props => {
           </Card>
         </View>
       </HeaderContainer>
-      <View style={styles.ratingContainer}>
-        <Card style={styles.ratingCardContainer} onPress={openMyRatingHandler}>
-          <Card.Content style={styles.ratingCardContent} >
-            <View>
-              <Title style={styles.ratingTitle}> 
-                <AirbnbRating
-                  count={5}
-                  defaultRating={4.5}
-                  size={12}
-                  isDisabled
-                  
-                />
-              </Title>
-              <Caption style={styles.ratingCaption}>Your Rating</Caption>
-            </View>
-            <MaterialCommunityIcons name="star-circle" color="#6200EE" size={30} />
-          </Card.Content>
-        </Card>
-        <Card style={styles.ratingCardContainer} onPress={()=> props.navigation.navigate('Manage')}>
-          <Card.Content style={styles.ratingCardContent}>
-            <View>
-              <Title style={styles.ratingTitle}>Products</Title>
-              <Caption style={styles.ratingCaption}>Your Products</Caption>
-            </View>
-            <MaterialCommunityIcons name="corn" color="#6200EE" size={30} />
-          </Card.Content>
-        </Card>
-      </View>
-      <Portal>
-        <Dialog visible={ratingModal} onDismiss={closeRatingHandler}>
-          <Dialog.Title>Give Rating</Dialog.Title>
-          <Dialog.Content>
-            <Paragraph>Rate the merchant</Paragraph>
-          </Dialog.Content>
-        </Dialog>
-      </Portal>
-      <Portal>
-        <Dialog visible={myRatingModal} onDismiss={closeMyRatingHandler}>
-          <Dialog.ScrollArea>
-            <ScrollView contentContainerStyle={{paddingHorizontal: 24}}>
-            <DataTable>
-            <DataTable.Header>
-              <DataTable.Title>Reviewer ID</DataTable.Title>
-              <DataTable.Title numeric>Comment</DataTable.Title>
-              <DataTable.Title numeric>Rating</DataTable.Title>
-            </DataTable.Header>
-
-            <DataTable.Row>
-              <DataTable.Cell>Agapito Bagumbayan</DataTable.Cell>
-              <DataTable.Cell numeric>Ayos!</DataTable.Cell>
-              <DataTable.Cell numeric>4.0</DataTable.Cell>
-            </DataTable.Row>
-
-            <DataTable.Row>
-              <DataTable.Cell>Jose  Rizal</DataTable.Cell>
-              <DataTable.Cell numeric>Nice!</DataTable.Cell>
-              <DataTable.Cell numeric>5.0</DataTable.Cell>
-            </DataTable.Row>
-            </DataTable>
-            </ScrollView>
-          </Dialog.ScrollArea>
-        </Dialog>
-      </Portal>
     </View>
 )}
 
