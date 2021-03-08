@@ -1,7 +1,6 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { Card, Title, Caption } from 'react-native-paper';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const CardItem = (props) => {
   return(
@@ -11,7 +10,6 @@ const CardItem = (props) => {
           <Title style={styles.cardTitle}>{props.item? props.item.goodsName :  props.title}</Title>
           <Caption style={styles.cardCaption}>{props.item? props.item.additionalDesc : props.caption}</Caption>
         </View>
-        {/* <MaterialCommunityIcons name="chevron-right" color="#6200EE" size={30} /> */}
       </Card.Content>
     </Card>
 )}
