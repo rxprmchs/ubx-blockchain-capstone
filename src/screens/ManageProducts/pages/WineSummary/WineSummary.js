@@ -1,14 +1,11 @@
-import React, {useState, useEffect} from 'react'
-import { StyleSheet, View, Text, ScrollView, Image, TouchableOpacity} from 'react-native'
-import { FAB, Avatar } from 'react-native-paper';
+import React, { useState } from 'react'
+import { StyleSheet, View, Text, ScrollView, TouchableOpacity} from 'react-native'
+import { Avatar } from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import QorkPatternContainer from '../../../../shared/components/Container/QorkPattern/QorkPattern'
 import Wine from '../../../../../assets/images/MaskGroup2.svg'
-import SmallWine  from '../../../../../assets/images/Group9.svg'
-import Group  from '../../../../../assets/images/Group1833.svg'
-import MoreInfoModal from '../WineDetails/components/MoreInfoModal'
-import Map from '../../../../../assets/images/Rectangle200.png'
+import SmallWine  from '../../../../../assets/images/SmallWine.svg'
 import RegisterModal from './components/RegisterModal';
 
 const WineSummary = props => {

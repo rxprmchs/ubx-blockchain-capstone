@@ -5,7 +5,7 @@ import { FAB, Avatar } from 'react-native-paper';
 
 import QorkPatternContainer from '../../../../shared/components/Container/QorkPattern/QorkPattern'
 import Wine from '../../../../../assets/images/MaskGroup2.svg'
-import SmallWine  from '../../../../../assets/images/Group9.svg'
+import SmallWine  from '../../../../../assets/images/SmallWine.svg'
 import Group  from '../../../../../assets/images/Group1833.svg'
 import MoreInfoModal from './components/MoreInfoModal'
 import Map from '../../../../../assets/images/Rectangle200.png'
