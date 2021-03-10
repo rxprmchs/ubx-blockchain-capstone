@@ -61,7 +61,7 @@ const CameraQR = (props)=> {
       <VerifySuccessModal
         onPress={()=>{
           closeModalHandler()
-          props.navigation.navigate('Wine Summary')
+          props.navigation.navigate('Item Summary')
         }}
         modalVisible={modalVisible} 
         cancel={closeModalHandler} 

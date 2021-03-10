@@ -33,10 +33,10 @@ const RegisterModal = props => {
             <View style={{flexDirection: 'column', width: '100%', padding: 10, justifyContent: 'center', alignItems: 'center'}}>
               <HighFive/>
               <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                <Text style={styles.title}>Wine Registered</Text>
+                <Text style={styles.title}>Item Registered</Text>
                 <Text style={{fontSize: 18}}>Qork has been registered to the device, </Text>
                 <Text style={{fontSize: 18}}>ou should receive constant updates of your</Text>
-                <Text style={{fontSize: 18}}>wine's location and temperature status</Text>
+                <Text style={{fontSize: 18}}>Item's location and temperature status</Text>
               </View>
               <View style={{justifyContent: 'center', padding: 10,  alignItems: 'center'}}>
                 <TouchableOpacity delayPressIn={0} style={styles.btnPrimary} onPress={props.onPress}>

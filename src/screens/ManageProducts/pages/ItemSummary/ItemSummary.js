@@ -50,7 +50,7 @@ const ItemSummary = props => {
       </View>
       <View style={{transform: [{translateY: -60}], }}>
         <View style={{ paddingLeft: 40, paddingRight: 40,  justifyContent: 'flex-end', paddingBottom: 20}}>
-          <Text style={styles.title}>About the Wine</Text>
+          <Text style={styles.title}>About the item</Text>
           <View style={{ borderBottomWidth: 3, borderBottomColor: '#C92459', width: 125, marginBottom: 10}}></View>
           <Text style={{fontSize: 15}}>The Burgundy producer Domaine Romanée-Conti, known as "DRC" to collectors, consistently commands the highest prices in the world of wine. Its top vineyard, Romanée-Conti, encompasses just 4.5 acres.</Text>
         </View>

@@ -29,7 +29,7 @@ const ChangeTempModal = props => {
             {props.tempChanged ? 
               <View style = {{flexDirection: "column", marginTop: 2.5, alignItems: 'center'}}>
                 <Text style={styles.title}>{props.successText}</Text>
-                <Text style={{fontSize: 18, paddingLeft: 10, paddingRight: 10, paddingTop: 20, textAlign: 'center'}}>Will now notify the wine owner and the courier with the update</Text>
+                <Text style={{fontSize: 18, paddingLeft: 10, paddingRight: 10, paddingTop: 20, textAlign: 'center'}}>Will now notify the item owner and the courier with the update</Text>
             </View>
             :
             <View style={{flexDirection: 'column'}}>
@@ -54,7 +54,7 @@ const ChangeTempModal = props => {
             {props.tempChanged ?
               <View style={{justifyContent: 'center', padding: 10}}>
                 <TouchableOpacity delayPressIn={0} style={styles.btnPrimary} onPress={()=> props.proceed()}>
-                  <Text style={styles.btnTxt}>BACK TO WINE INFO</Text>
+                  <Text style={styles.btnTxt}>BACK TO ITEM INFO</Text>
                 </TouchableOpacity> 
               </View> 
               :  

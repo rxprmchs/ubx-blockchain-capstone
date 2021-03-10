@@ -24,8 +24,8 @@ const MainMenu = props => {
         <Stack.Screen name="Manage Products" component={ManageProducts}/>
         <Stack.Screen name="Select Destination" component={SelectDestination}/>
         <Stack.Screen name="Camera QR" component={CameraQR}/>
-        <Stack.Screen name="Wine Summary" component={ItemSummary}/>
-        <Stack.Screen name="Wine Details" component={ItemDetails} />
+        <Stack.Screen name="Item Summary" component={ItemSummary}/>
+        <Stack.Screen name="Item Details" component={ItemDetails} />
         <Stack.Screen name="Adjust Temp" component={AdjustTemp} />
       </Stack.Navigator>
     </>
