@@ -3,12 +3,12 @@ import { StyleSheet, View, Text, ScrollView, TouchableOpacity} from 'react-nativ
 import { Avatar } from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import QorkPatternContainer from '../../../../shared/components/Container/QorkPattern/QorkPattern'
+import QorkPatternContainer from '../../../../shared/Container/QorkPattern/QorkPattern'
 import Wine from '../../../../../assets/images/Wine.svg'
 import SmallWine  from '../../../../../assets/images/SmallWine.svg'
 import RegisterModal from './components/RegisterModal';
 
-const WineSummary = props => {
+const ItemSummary = props => {
   const [modalVisible, setModalVisible] = useState(false)
 
   const openModalHandler = () => {
@@ -136,4 +136,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default WineSummary
+export default ItemSummary

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, View, Modal, BackHandler, TouchableOpacity, ScrollView, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard } from 'react-native'
+import { StyleSheet, View, Modal, BackHandler, TouchableOpacity, ScrollView, KeyboardAvoidingView } from 'react-native'
 import { Avatar, TextInput, Text } from 'react-native-paper';
 
-const AddWineModal = props => {
+const AddItemModal = props => {
   const [text, setText] = useState('');
-  const [birthDate, setBirthDate] = useState()
 
   useEffect(() => {
       const backAction = () => {
@@ -19,7 +18,6 @@ const AddWineModal = props => {
   }, [])
 
   return (
-    
     <Modal
       animationType="slide"
       transparent={true}
@@ -27,9 +25,6 @@ const AddWineModal = props => {
       visible={props.modalVisible}
       >
       <View style={styles.bgModalContainer}>
-
-
-
         <View style={styles.container}>
           <View style={styles.modal}>
             <View style={{flexDirection: 'column'}}>
@@ -238,4 +233,4 @@ const styless = StyleSheet.create({
     marginTop: 12
   }
 });
-export default AddWineModal
+export default AddItemModal

@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { createStackNavigator } from "@react-navigation/stack";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import ManageProducts from '../../../screens/ManageProducts/ManageProducts'
-import WineDetails from '../../../screens/ManageProducts/pages/WineDetails/WineDetails'
-import CameraQR from '../../../screens/ManageProducts/pages/CameraQR/CameraQR'
-import AdjustTemp from '../../../screens/ManageProducts/pages/WineDetails/AdjustTemp'
-import SampleScreen1 from '../../../screens/SampleComponent1/SampleComponent1'
-import SampleScreen2 from '../../../screens/SampleComponent2/SampleComponent2'
-import SelectDestination from '../../../screens/ManageProducts/pages/SelectDestination/SelectDestination'
-import WineSummary from '../../../screens/ManageProducts/pages/WineSummary/WineSummary'
+import ManageProducts from '../../screens/ManageProducts/ManageProducts'
+import ItemDetails  from '../../screens/ManageProducts/pages/ItemDetails/ItemDetails'
+import CameraQR from '../../screens/ManageProducts/pages/CameraQR/CameraQR'
+import AdjustTemp from '../../screens/ManageProducts/pages/ItemDetails/AdjustTemp'
+import SampleScreen1 from '../../screens/SampleComponent1/SampleComponent1'
+import SampleScreen2 from '../../screens/SampleComponent2/SampleComponent2'
+import SelectDestination from '../../screens/ManageProducts/pages/SelectDestination/SelectDestination'
+import ItemSummary from '../../screens/ManageProducts/pages/ItemSummary/ItemSummary'
 
 const Stack = createStackNavigator()
 const Tab = createMaterialBottomTabNavigator();
@@ -24,8 +24,8 @@ const MainMenu = props => {
         <Stack.Screen name="Manage Products" component={ManageProducts}/>
         <Stack.Screen name="Select Destination" component={SelectDestination}/>
         <Stack.Screen name="Camera QR" component={CameraQR}/>
-        <Stack.Screen name="Wine Summary" component={WineSummary}/>
-        <Stack.Screen name="Wine Details" component={WineDetails} />
+        <Stack.Screen name="Wine Summary" component={ItemSummary}/>
+        <Stack.Screen name="Wine Details" component={ItemDetails} />
         <Stack.Screen name="Adjust Temp" component={AdjustTemp} />
       </Stack.Navigator>
     </>

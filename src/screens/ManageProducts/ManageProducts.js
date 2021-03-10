@@ -4,7 +4,7 @@ import { Title,  Text, Appbar } from 'react-native-paper';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import AddWineModal from './components/AddWineModal';
+import AddWineModal from './components/AddItemModal';
 import CardItem from './components/WineItem';
 import Fab from './components/Fab';
 
