@@ -4,11 +4,10 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import { FAB, Avatar } from 'react-native-paper';
 
 import QorkPatternContainer from '../../../../shared/components/Container/QorkPattern/QorkPattern'
-import Wine from '../../../../../assets/images/MaskGroup2.svg'
+import Wine from '../../../../../assets/images/Wine.svg'
 import SmallWine  from '../../../../../assets/images/SmallWine.svg'
 import Group  from '../../../../../assets/images/Group1833.svg'
 import MoreInfoModal from './components/MoreInfoModal'
-import Map from '../../../../../assets/images/Rectangle200.png'
 
 const WineDetails = props => {
   const [modalVisible, setModalVisible] = useState(false)
@@ -61,7 +60,7 @@ const WineDetails = props => {
         <View style={{backgroundColor: 'blue'}}>
           <Image
             style={{width: '100%', height: 330}}
-            source={require('../../../../../assets/images/Rectangle200.png')}
+            source={require('../../../../../assets/images/StaticMap.png')}
           />
         </View>
       </View>

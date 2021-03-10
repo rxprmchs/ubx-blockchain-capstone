@@ -10,7 +10,7 @@ const  SelectDestination = props =>{
     <ScrollView style={{backgroundColor: '#fff'}}>
       <Image
         style={{width: '100%',}}
-        source={require('../../../../../assets/images/Rectangle200.png')}
+        source={require('../../../../../assets/images/StaticMap.png')}
       />
       <TouchableOpacity onPress={()=> props.navigation.navigate('Manage Products')} style={{position: 'absolute', top: 0, marginLeft: 16, marginTop: 30}}>
         <Avatar.Icon size={30} style={{backgroundColor: '#fff', borderColor: '#000'}}  icon="arrow-left" color="#BCBCBC"/>

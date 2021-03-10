@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { StyleSheet, View, Modal, BackHandler, TouchableOpacity } from 'react-native'
 import { Text} from 'react-native-paper';
 
-import HighFive from '../../../../../../assets/images/Group1861.svg'
+import HighFive from '../../../../../../assets/images/WineSuccessHighFive.svg'
 
 const RegisterModal = props => {
   const [text, setText] = useState('');
