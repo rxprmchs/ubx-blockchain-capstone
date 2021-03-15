@@ -109,7 +109,7 @@ const ManageProducts = props => {
           temperature={temperature}
           route={route}
           eta={eta}
-          onPress={() => props.navigation.navigate('Wine Details')}
+          onPress={() => props.navigation.navigate('Item Details')}
           // onPress={() => props.navigation.navigate('Product Info', {item: item, deleteGoods: deleteProduct})}
         />
       )
@@ -122,7 +122,7 @@ const ManageProducts = props => {
     >
       <Appbar.Header style={{backgroundColor:'white'}}>
         <Appbar.Action color="#BCBCBC" icon="menu" size={20} onPress={() => {}} />
-        <Appbar.Content color="#C92459" title="Wine List" />
+        <Appbar.Content color="#C92459" title="Item List" />
         <Appbar.Action color="#BCBCBC" icon="magnify" size={20} onPress={() => {}} />
         <Appbar.Action color="#BCBCBC" icon='bell-outline' size={20} onPress={() => {}} />
       </Appbar.Header>

@@ -72,7 +72,7 @@ const ItemSummary = props => {
       </View>
       <View style={{justifyContent: 'center', alignItems: 'center', transform: [{translateY: -60}], }}>
         <TouchableOpacity delayPressIn={0} style={styles.btnPrimary} onPress={openModalHandler}>
-          <Text style={styles.btnTxt}>REGISTER WINE</Text>
+          <Text style={styles.btnTxt}>REGISTER ITEM</Text>
         </TouchableOpacity> 
       </View>
       {/* <View style={{flexDirection: 'column'}}>

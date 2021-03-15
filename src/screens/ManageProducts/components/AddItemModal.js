@@ -28,78 +28,64 @@ const AddItemModal = props => {
         <View style={styles.container}>
           <View style={styles.modal}>
             <View style={{flexDirection: 'column'}}>
-
-              {/* header */}
               <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingBottom: 20}}>
                 <View>
                   <Text style={styles.title}>Add an item</Text>
                   <View style={{ borderBottomWidth: 3, borderBottomColor: '#C92459'}}/>
                 </View>
-                {/* //close button */}
                 <TouchableOpacity onPress={()=> props.cancel()}>
                 <Avatar.Icon size={30} style={{backgroundColor: '#fff', borderColor: '#000'}}  icon="close" color="#BCBCBC"/>
                 </TouchableOpacity>
               </View>
-
               <KeyboardAvoidingView
                 behavior={Platform.OS === "ios" ? "padding" : "height"}
                 style={{flex:1}}
                 keyboardVerticalOffset={190}
               >
-
                 <ScrollView>    
                   <Text style={styles.inputTitle}>Item name</Text>
                   <TextInput
-                    style={{height: 40, width: 380, backgroundColor: '#DEDEDE', marginBottom:20}}
-                    placeholder="Set Temperature"
-                    placeholderTextColor="#BCBCBC"
-                    // value={text}
+                    style={{height: 60, width: 380, backgroundColor: '#DEDEDE', marginBottom:20}}
+                    label="Set Temperature"
+                    theme={{ colors: { primary: '#C92459',underlineColor:'transparent',}}}
                     onChangeText={text => setText(text)}
                   />
 
                   <Text style={styles.inputTitle}>Date it was stored</Text>
                   <TextInput
-                    style={{height: 40, width: 380, backgroundColor: '#DEDEDE', marginBottom:20}}
-                    placeholder="MM-DD-YYYY"
-                    placeholderTextColor="#BCBCBC"
-                    // value={text}
+                    style={{height: 60, width: 380, backgroundColor: '#DEDEDE', marginBottom:20}}
+                    label="MM-DD-YYYY"
+                    theme={{ colors: { primary: '#C92459',underlineColor:'transparent',}}}
                     onChangeText={text => setText(text)}
                   />
  
                   <Text style={styles.inputTitle}>Type of item</Text>
                   <TextInput
-                    style={{height: 40, width: 380, backgroundColor: '#DEDEDE', marginBottom:20}}
-                    placeholder="Set Temperature"
-                    placeholderTextColor="#BCBCBC"
-                    // value={text}
-                    // onChangeText={text => setText(text)}
+                    style={{height: 60, width: 380, backgroundColor: '#DEDEDE', marginBottom:20}}
+                    label="Set Tempereture"
+                    theme={{ colors: { primary: '#C92459',underlineColor:'transparent',}}}
                   />
 
                   <Text style={styles.inputTitle}>Item threshold</Text>
                   <TextInput
-                    style={{height: 40, width: 380, backgroundColor: '#DEDEDE', marginBottom:10}}
-                    placeholder="Lowest Temperature"
-                    placeholderTextColor="#BCBCBC"
-                    // value={text}
-                    // onChangeText={text => setText(text)}
+                    style={{height: 60, width: 380, backgroundColor: '#DEDEDE', marginBottom:20}}
+                    label="Lowest Temperature"
+                    theme={{ colors: { primary: '#C92459',underlineColor:'transparent',}}}
                   />
                   <TextInput
-                    style={{height: 40, width: 380, backgroundColor: '#DEDEDE', marginBottom:20}}
-                    placeholder="Highest Temperature"
-                    placeholderTextColor="#BCBCBC"
-                    // value={text}
-                    // onChangeText={text => setText(text)}
+                    style={{height: 60, width: 380, backgroundColor: '#DEDEDE', marginBottom:20}}
+                    label="Highest Temperature"
+                    theme={{ colors: { primary: '#C92459',underlineColor:'transparent',}}}
                   />
 
                   <Text style={styles.inputTitle}>About the item</Text>
                   <TextInput
+                    style={{height: 60, width: 380, backgroundColor: '#DEDEDE', marginBottom:20}}
+                    label="About the item"
+                    theme={{ colors: { primary: '#C92459',underlineColor:'transparent',}}}
                     style={{height: 100, width: 380, backgroundColor: '#DEDEDE', marginBottom:0}}
-                    placeholder="About the item"
-                    placeholderTextColor="#BCBCBC"
-                    // value={text}
                     multiline={true}
                     numberOfLines={5}
-                    // onChangeText={text => setText(text)}
                   />
                   
                 </ScrollView>
