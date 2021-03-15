@@ -1,17 +1,14 @@
-import React, {useState, useEffect} from 'react'
-import { StyleSheet, View, Text, ScrollView, Image, TouchableOpacity} from 'react-native'
-import { FAB, Avatar } from 'react-native-paper';
+import React, { useState } from 'react'
+import { StyleSheet, View, Text, ScrollView, TouchableOpacity} from 'react-native'
+import { Avatar } from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import QorkPatternContainer from '../../../../shared/components/Container/QorkPattern/QorkPattern'
-import Wine from '../../../../../assets/images/MaskGroup2.svg'
-import SmallWine  from '../../../../../assets/images/Group9.svg'
-import Group  from '../../../../../assets/images/Group1833.svg'
-import MoreInfoModal from '../WineDetails/components/MoreInfoModal'
-import Map from '../../../../../assets/images/Rectangle200.png'
+import QorkPatternContainer from '../../../../shared/Container/QorkPattern/QorkPattern'
+import Wine from '../../../../../assets/images/Wine.svg'
+import SmallWine  from '../../../../../assets/images/SmallWine.svg'
 import RegisterModal from './components/RegisterModal';
 
-const WineSummary = props => {
+const ItemSummary = props => {
   const [modalVisible, setModalVisible] = useState(false)
 
   const openModalHandler = () => {
@@ -53,7 +50,7 @@ const WineSummary = props => {
       </View>
       <View style={{transform: [{translateY: -60}], }}>
         <View style={{ paddingLeft: 40, paddingRight: 40,  justifyContent: 'flex-end', paddingBottom: 20}}>
-          <Text style={styles.title}>About the Wine</Text>
+          <Text style={styles.title}>About the item</Text>
           <View style={{ borderBottomWidth: 3, borderBottomColor: '#C92459', width: 125, marginBottom: 10}}></View>
           <Text style={{fontSize: 15}}>The Burgundy producer Domaine Romanée-Conti, known as "DRC" to collectors, consistently commands the highest prices in the world of wine. Its top vineyard, Romanée-Conti, encompasses just 4.5 acres.</Text>
         </View>
@@ -75,7 +72,7 @@ const WineSummary = props => {
       </View>
       <View style={{justifyContent: 'center', alignItems: 'center', transform: [{translateY: -60}], }}>
         <TouchableOpacity delayPressIn={0} style={styles.btnPrimary} onPress={openModalHandler}>
-          <Text style={styles.btnTxt}>REGISTER WINE</Text>
+          <Text style={styles.btnTxt}>REGISTER ITEM</Text>
         </TouchableOpacity> 
       </View>
       {/* <View style={{flexDirection: 'column'}}>
@@ -139,4 +136,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default WineSummary
+export default ItemSummary

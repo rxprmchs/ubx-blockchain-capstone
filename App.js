@@ -5,7 +5,7 @@ import { Provider as PaperProvider } from 'react-native-paper';
 import { AppLoading } from 'expo';
 import { useFonts } from 'expo-font';
 
-import MainMenu from './src/shared/components/MainMenu/MainMenu'
+import MainMenu from './src/shared/MainMenu/MainMenu'
 
 const Stack = createStackNavigator();
 

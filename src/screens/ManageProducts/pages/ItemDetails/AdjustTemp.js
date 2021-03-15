@@ -31,14 +31,13 @@ const AdjustTemp = props => {
   const successModalHanlder = () => {
     setModalVisible(false)
     setTempChanged(false)
-    props.navigation.navigate('Wine Details')
+    props.navigation.navigate('Item Details')
   }
 
-  const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
   return(
     <ScrollView>
       <Appbar.Header style={{backgroundColor: '#FFF'}} backgroundColor="white">
-        <Appbar.Action icon="arrow-left" size={20} onPress={() => props.navigation.navigate('Wine Details')} />
+        <Appbar.Action icon="arrow-left" size={20} onPress={() => props.navigation.navigate('Item Details')} />
         <Appbar.Content color="#C92459" title="Adjust Temperature" />
       </Appbar.Header>
       <View style={{height: 300, width: '100%', backgroundColor: '#FBFBFB', flexDirection: 'column', alignItems: 'center'}}>
@@ -71,7 +70,7 @@ const AdjustTemp = props => {
         tempChanged={tempChanged} 
         proceed={successModalHanlder}
         successText='Temperature Changed'
-        backText='BACK TO WINE INFO'
+        backText='BACK TO ITEM INFO'
       />
     </ScrollView>
   )
